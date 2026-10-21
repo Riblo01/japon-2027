@@ -1,0 +1,990 @@
+<!DOCTYPE html><html lang="es"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Itinerario de 10 días en Japón para 6 desde Quito: fotos, mapas, Airbnb, costos validados y plan de ahorro. Elegí tus opciones y mandalas al grupo.">
+<meta property="og:title" content="Japón 2027 · Ruta de los seis">
+<meta property="og:description" content="Itinerario de 10 días en Japón para 6 desde Quito: fotos, mapas, Airbnb, costos validados y plan de ahorro. Elegí tus opciones y mandalas al grupo.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://riblo01.github.io/japon-2027/">
+<meta property="og:image" content="https://riblo01.github.io/japon-2027/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#21894A">
+<title>Japón 2027 · Ruta de los seis</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Zen+Kaku+Gothic+New:wght@400;500;700&amp;display=swap">
+<style>
+/* Layout: a rail timetable. Ticket header, month and lodging switches, line map, route maps, lodging cards, then one timetable card per day with photos and its station stamp. */
+:root{
+  --paper:#F5F7F5; --card:#FFFFFF; --ink:#17201C; --muted:#5B6863; --rule:#D8DFDB; --soft:#EBF0ED;
+  --tokyo:#21894A; --kyoto:#7647A6; --nara:#9A6B1F; --osaka:#D45F12; --air:#3F6688;
+  --ok:#2B7A57; --ok-bg:#E3F2EA; --est:#8F6210; --est-bg:#F7EDD9; --pin-ink:#FFFFFF;
+  --display:"Dela Gothic One","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+  --body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#111614; --card:#18201D; --ink:#E4EBE7; --muted:#97A59F; --rule:#2A3430; --soft:#1F2925;
+  --tokyo:#4CC37A; --kyoto:#B08AE0; --nara:#D8A350; --osaka:#F58B45; --air:#7FA6C9;
+  --ok:#6FCF9F; --ok-bg:#183328; --est:#E5B45C; --est-bg:#352812; --pin-ink:#0E1311; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#111614; --card:#18201D; --ink:#E4EBE7; --muted:#97A59F; --rule:#2A3430; --soft:#1F2925;
+  --tokyo:#4CC37A; --kyoto:#B08AE0; --nara:#D8A350; --osaka:#F58B45; --air:#7FA6C9;
+  --ok:#6FCF9F; --ok-bg:#183328; --est:#E5B45C; --est-bg:#352812; --pin-ink:#0E1311; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px}
+.wrap{max-width:1000px;margin:0 auto;display:grid;gap:44px}
+h1,h2,h3{text-wrap:balance;margin:0}
+a{color:inherit}
+a:focus-visible,button:focus-visible,label:focus-within{outline:2px solid var(--air);outline-offset:2px}
+img{display:block;max-width:100%}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500}
+section{display:grid;gap:16px;min-width:0}
+.sec-head{display:grid;gap:6px;max-width:70ch}
+.sec-head h2{font-family:var(--display);font-weight:400;font-size:26px}
+.sec-head p{margin:0;color:var(--muted)}
+
+/* Ticket header */
+.ticket{background:var(--card);border:1px solid var(--rule);border-radius:14px;display:grid;grid-template-columns:1fr auto;overflow:hidden}
+.ticket-main{padding:24px 26px;display:grid;gap:14px;min-width:0}
+.route{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.route .city{font-family:var(--display);font-size:clamp(28px,6vw,46px);line-height:1}
+.route .arrow{font-family:var(--mono);color:var(--muted);font-size:20px}
+.route .kanji{font-family:var(--display);font-size:clamp(28px,6vw,46px);color:var(--tokyo);line-height:1}
+.meta{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:14px;color:var(--muted)}
+.meta b{color:var(--ink);font-weight:500}
+.ticket-stub{border-left:2px dashed var(--rule);padding:24px 26px;display:grid;align-content:center;gap:4px;min-width:220px;background:var(--soft)}
+.stub-total{font-family:var(--mono);font-size:34px;font-weight:500;line-height:1.1;font-variant-numeric:tabular-nums}
+.stub-sub{font-size:13px;color:var(--muted)}
+@media (max-width:640px){.ticket{grid-template-columns:1fr}.ticket-stub{border-left:0;border-top:2px dashed var(--rule)}}
+
+/* Controls */
+.controls{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center}
+.ctl{display:grid;gap:6px}
+.ctl > span{font-size:12px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.seg{display:inline-flex;border:1px solid var(--rule);border-radius:999px;overflow:hidden;background:var(--card);flex-wrap:wrap}
+.seg label{cursor:pointer;position:relative}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg span{display:block;padding:7px 14px;font-size:14px;color:var(--muted)}
+.seg input:checked+span{background:var(--ink);color:var(--paper)}
+.check{display:inline-flex;gap:8px;align-items:center;font-size:14px;cursor:pointer;align-self:end;padding-bottom:6px}
+.check input{width:18px;height:18px;accent-color:var(--osaka)}
+.legend{display:flex;gap:10px 14px;flex-wrap:wrap;font-size:13px;color:var(--muted);align-items:center}
+.chip{display:inline-block;font-size:11px;letter-spacing:.04em;padding:1px 7px;border-radius:999px;font-weight:500;white-space:nowrap;vertical-align:1px}
+.chip.v{background:var(--ok-bg);color:var(--ok)}
+.chip.e{background:var(--est-bg);color:var(--est)}
+.chip.o{border:1px dashed var(--muted);color:var(--muted)}
+.month-note{background:var(--card);border:1px solid var(--rule);border-left:4px solid var(--osaka);border-radius:0 10px 10px 0;padding:12px 16px;font-size:14px}
+.month-note b{font-weight:700}
+
+/* Line map */
+.linemap{overflow-x:auto}
+.line{list-style:none;margin:0;padding:8px 0 0;display:grid;grid-template-columns:repeat(5,minmax(96px,1fr));min-width:520px}
+.line li{position:relative;display:grid;justify-items:center;text-align:center;gap:4px;padding-top:26px}
+.line li::before{content:"";position:absolute;top:10px;left:0;right:0;height:6px;background:var(--c)}
+.line li:first-child::before{left:50%}
+.line li:last-child::before{right:50%}
+.line li::after{content:"";position:absolute;top:3px;left:50%;transform:translateX(-50%);width:20px;height:20px;border-radius:50%;background:var(--card);border:4px solid var(--c)}
+.line .st{font-family:var(--display);font-size:20px;line-height:1.1}
+.line .lat{font-weight:500;font-size:14px}
+.line .n{font-size:12px;color:var(--muted)}
+
+/* Maps */
+.maps{display:grid;gap:22px}
+.map{margin:0;background:var(--card);border:1px solid var(--rule);border-radius:14px;overflow:hidden;display:grid;grid-template-columns:minmax(0,3fr) minmax(220px,2fr)}
+.map.wide{grid-template-columns:1fr}
+.map-frame{position:relative;min-width:0;align-self:start}
+.map-frame img{width:100%;height:auto}
+.pin{position:absolute;transform:translate(-50%,-50%);min-width:24px;height:24px;padding:0 5px;border-radius:12px;border:2px solid var(--card);background:var(--c);color:var(--pin-ink);font:500 12px/20px var(--mono);cursor:pointer;box-shadow:0 1px 3px rgba(0,0,0,.35)}
+.pin.bnb{border-radius:5px;background:var(--ink);color:var(--paper)}
+.pin.bnb.dim{opacity:.45}
+.pin.city{min-width:16px;height:16px;padding:0;border-radius:50%;background:var(--card);border:4px solid var(--c)}
+.pin:hover,.pin:focus-visible{z-index:5}
+.pin[data-label]:hover::after,.pin[data-label]:focus::after{content:attr(data-label);position:absolute;left:50%;bottom:calc(100% + 6px);transform:translateX(-50%);white-space:nowrap;background:var(--ink);color:var(--paper);font:400 12px/1.4 var(--body);padding:4px 8px;border-radius:6px;pointer-events:none}
+.citylabel{position:absolute;transform:translate(-50%,10px);font:400 15px/1.1 var(--display);color:#17201C;text-shadow:0 0 3px #fff,0 0 3px #fff;pointer-events:none;white-space:nowrap}
+.map-legend{padding:16px 18px;display:grid;gap:8px;align-content:start;font-size:13px;border-left:1px solid var(--rule);min-width:0}
+.map-legend ol{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+.map-legend h3{font-size:15px;font-weight:700}
+.map-legend li{display:grid;grid-template-columns:28px 1fr;gap:8px;align-items:start}
+.map-legend .k{font:500 12px/20px var(--mono);text-align:center;border-radius:10px;color:var(--pin-ink);background:var(--c);height:20px}
+.map-legend .k.bnb{border-radius:4px;background:var(--ink);color:var(--paper)}
+.map-legend li.sub{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.attrib{font-size:11px;color:var(--muted);padding:6px 10px}
+@media (max-width:720px){.map{grid-template-columns:1fr}.map-legend{border-left:0;border-top:1px solid var(--rule)}}
+
+/* Lodging */
+.stays{display:grid;gap:26px}
+.stay-block{display:grid;gap:12px}
+.stay-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.stay-head h3{font-size:18px;font-weight:700;display:flex;gap:10px;align-items:baseline}
+.stay-head h3 span{font-family:var(--display);font-weight:400;color:var(--c)}
+.stay-head .mkt{font-size:13px;color:var(--muted)}
+.bnbs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media (max-width:760px){.bnbs{grid-template-columns:1fr}}
+.bnb-card{background:var(--card);border:1px solid var(--rule);border-radius:12px;overflow:hidden;display:grid;grid-template-rows:auto 1fr;position:relative}
+.bnb-card.sel{border:2px solid var(--c)}
+.bnb-card img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.bnb-body{padding:12px 14px;display:grid;gap:6px;align-content:start}
+.bnb-lvl{position:absolute;top:10px;left:10px;background:var(--card);color:var(--ink);font-size:12px;font-weight:500;padding:2px 9px;border-radius:999px}
+.bnb-card.sel .bnb-lvl{background:var(--c);color:var(--pin-ink)}
+.bnb-title{font-weight:700;font-size:15px;line-height:1.3}
+.bnb-sub{font-size:13px;color:var(--muted);line-height:1.4}
+.bnb-meta{font-size:13px;display:flex;gap:6px 12px;flex-wrap:wrap}
+.bnb-price{display:flex;justify-content:space-between;align-items:baseline;gap:8px;border-top:1px solid var(--rule);padding-top:8px;margin-top:2px;flex-wrap:wrap}
+.bnb-price b{font-family:var(--mono);font-size:18px;font-weight:500}
+.bnb-price small{font-size:12px;color:var(--muted)}
+.bnb-link{font-size:13px}
+
+/* Day cards */
+.days{display:grid;gap:22px}
+.day{background:var(--card);border:1px solid var(--rule);border-radius:14px;display:grid;grid-template-columns:168px 1fr;overflow:hidden}
+.day-side{padding:20px 18px;border-right:1px solid var(--rule);display:grid;align-content:start;gap:10px;justify-items:start;background:var(--soft)}
+.day-date{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.day-num{font-family:var(--display);font-size:30px;line-height:1;color:var(--c)}
+.stamp{width:124px;height:124px;color:var(--c);transform:rotate(-4deg)}
+.day-main{padding:20px 22px;display:grid;gap:14px;min-width:0}
+.gallery{display:grid;grid-template-columns:2fr 1fr;grid-auto-rows:1fr;gap:6px;border-radius:10px;overflow:hidden}
+.gallery.one{grid-template-columns:1fr}
+.gallery figure{margin:0;position:relative;min-width:0}
+.gallery img{width:100%;height:100%;object-fit:cover}
+.gallery .big{grid-row:span 2;aspect-ratio:16/10}
+.gallery.one .big{aspect-ratio:21/9}
+.gallery.two .small{grid-row:span 2;aspect-ratio:auto}
+.gallery .small{aspect-ratio:16/10}
+.gallery figcaption{position:absolute;left:0;bottom:0;right:0;padding:14px 10px 6px;font-size:12px;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.65))}
+.day-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
+.day-head h3{font-size:21px;font-weight:700}
+.day-head .base{font-size:13px;color:var(--muted)}
+.tt{width:100%;border-collapse:collapse;font-size:14px}
+.tt td{padding:8px 6px;border-top:1px solid var(--rule);vertical-align:top}
+.tt tr:first-child td{border-top:0}
+.tt .h{font-family:var(--mono);white-space:nowrap;color:var(--c);font-weight:500;width:74px}
+.tt .what b{font-weight:700}
+.tt .what small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+.tt .cost{text-align:right;white-space:nowrap;font-family:var(--mono);font-variant-numeric:tabular-nums;width:1%}
+.tt .cost .y{display:block;color:var(--muted);font-size:12px}
+.tt tr.opt td{opacity:.6}
+.tt tr.opt.on td{opacity:1}
+.tt-wrap{overflow-x:auto}
+.day-foot{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:space-between;align-items:baseline;border-top:2px solid var(--c);padding-top:12px}
+.day-foot .stay{font-size:13px;color:var(--muted);min-width:0}
+.day-foot .stay b{color:var(--ink);font-weight:500}
+.day-total{font-family:var(--mono);font-size:20px;font-weight:500}
+.day-total small{font-size:12px;color:var(--muted);font-weight:400;margin-left:6px}
+.note{font-size:13px;background:var(--soft);border-radius:8px;padding:10px 12px}
+.note b{font-weight:700}
+@media (max-width:700px){
+  .day{grid-template-columns:1fr}
+  .day-side{border-right:0;border-bottom:1px solid var(--rule);grid-template-columns:auto 1fr;align-items:center;column-gap:16px}
+  .stamp{width:88px;height:88px}
+  .gallery{grid-template-columns:1fr 1fr}
+  .gallery .big{grid-column:1/-1;grid-row:auto}
+  .gallery.two .small{grid-column:1/-1;grid-row:auto;aspect-ratio:16/10}
+}
+
+/* Tables */
+.box{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:6px 8px;overflow-x:auto}
+.sum{width:100%;border-collapse:collapse;font-size:14px;min-width:560px}
+.sum th,.sum td{padding:9px 10px;border-bottom:1px solid var(--rule);text-align:right}
+.sum th:first-child,.sum td:first-child{text-align:left}
+.sum th{font-weight:500;color:var(--muted);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.sum td{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.sum td:first-child{font-family:var(--body)}
+.sum td small{display:block;font-size:11px;color:var(--muted)}
+.sum tr.tot td{font-weight:500;border-bottom:2px solid var(--ink)}
+.sum th.cur,.sum td.cur{background:var(--soft)}
+
+/* Food + bookings */
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.food{background:var(--card);border:1px solid var(--rule);border-top:4px solid var(--c);border-radius:0 0 12px 12px;padding:16px 18px;display:grid;gap:8px;align-content:start}
+.food h3{font-size:17px;font-weight:700;display:flex;gap:10px;align-items:baseline}
+.food h3 span{font-family:var(--display);font-weight:400;color:var(--c)}
+.food ul{margin:0;padding:0;list-style:none;display:grid;gap:6px;font-size:14px}
+.food li{display:flex;justify-content:space-between;gap:10px}
+.food li .p{font-family:var(--mono);color:var(--muted);white-space:nowrap;font-size:13px}
+.book{list-style:none;margin:0;padding:0;background:var(--card);border:1px solid var(--rule);border-radius:14px;overflow:hidden}
+.book li{display:grid;grid-template-columns:170px 1fr;gap:14px;padding:12px 18px;border-top:1px solid var(--rule)}
+.book li:first-child{border-top:0}
+.book .when{font-family:var(--mono);font-size:13px;color:var(--osaka);font-weight:500}
+@media (max-width:560px){.book li{grid-template-columns:1fr;gap:2px}}
+.fine{font-size:13px;color:var(--muted);display:grid;gap:8px;max-width:76ch}
+.fine p{margin:0}
+.fine ul{margin:0;padding-left:18px;display:grid;gap:3px}
+.map-frame svg.route{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.pin.dim{opacity:.35}
+.daychips{display:flex;flex-wrap:wrap;gap:6px}
+.daychips button{font:500 12px/1 var(--body);padding:6px 10px;border-radius:999px;border:1px solid var(--rule);background:var(--card);color:var(--muted);cursor:pointer}
+.daychips button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.routetxt{margin:0;font-size:12px;color:var(--muted);line-height:1.5}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;align-items:start}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.tile{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:16px 18px;display:grid;gap:4px}
+.tile b{font-family:var(--mono);font-size:30px;font-weight:500;line-height:1.1;font-variant-numeric:tabular-nums}
+.tile small{font-size:12px;color:var(--muted)}
+.num{font:500 16px var(--mono);padding:8px 12px;border:1px solid var(--rule);border-radius:8px;background:var(--card);color:var(--ink);width:100%}
+.err{color:#B3261E;font-size:13px;min-height:1em}
+.foodgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+.dish{background:var(--card);border:1px solid var(--rule);border-top:4px solid var(--c);border-radius:0 0 12px 12px;overflow:hidden;display:grid}
+.dish img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.dish div{padding:10px 12px;display:grid;gap:2px}
+.dish b{font-size:15px}
+.dish span{font-size:12px;color:var(--muted)}
+.dish em{font-style:normal;font-family:var(--mono);font-size:13px}
+.sum tr.txt td{font-family:var(--body)}
+.sum.compact{min-width:0}
+.sum.compact td:nth-child(2),.sum.compact th:nth-child(2){text-align:left;font-family:var(--body)}
+.vote-box{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;display:grid;gap:12px;align-content:start;min-width:0}
+.vote-h{font-size:16px;font-weight:700}
+.vote-mine{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px}
+.vote-mine div{display:grid;gap:2px;background:var(--soft);border-radius:8px;padding:8px 10px}
+.vote-mine span{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.vote-mine b{font-size:15px}
+.vote-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.btn{font:500 14px var(--body);padding:9px 16px;border-radius:999px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);cursor:pointer;text-decoration:none;display:inline-block}
+.btn.alt{background:var(--card);color:var(--ink);border-color:var(--rule)}
+.btn:disabled{opacity:.5;cursor:default}
+.vote-status{font-size:13px;color:var(--muted);margin:0}
+textarea.num{font:400 13px/1.5 var(--body);resize:vertical}
+.tally{display:grid;gap:6px;margin-bottom:10px}
+.bar{display:grid;grid-template-columns:100px 1fr 24px;gap:8px;align-items:center;font-size:13px}
+.bar i{display:block;height:10px;border-radius:5px;background:var(--soft);position:relative;overflow:hidden}
+.bar i::after{content:"";position:absolute;inset:0 auto 0 0;width:var(--w);background:var(--osaka);border-radius:5px}
+.bar b{font-family:var(--mono);text-align:right}
+.vote-list{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:13px}
+@media (prefers-reduced-motion:no-preference){.stamp{transition:transform .2s}.day:hover .stamp{transform:rotate(0deg)}}
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+
+  <header class="ticket" aria-label="Resumen del viaje">
+    <div class="ticket-main">
+      <div class="eyebrow">Viaje grupal · propuesta validada · ruta por Canadá</div>
+      <div class="route"><span class="city">Quito</span><span class="arrow">→</span><span class="kanji">東京</span><span class="city">Tokio</span></div>
+      <div class="meta">
+        <span>Salida <b id="m-dep">vie 13 ago 2027</b></span>
+        <span>En Japón <b id="m-jp">15 ago al 24 ago</b></span>
+        <span>Regreso a Quito <b id="m-ret">mié 25 ago</b></span>
+        <span>Viajeros <b>6</b></span>
+        <span>Tipo de cambio <b>¥155 = US$1</b></span>
+      </div>
+    </div>
+    <div class="ticket-stub" aria-live="polite">
+      <div class="eyebrow">Total por persona</div>
+      <div class="stub-total" id="t-pp">$3.896</div>
+      <div class="stub-sub" id="t-grp">Grupo de 6: $23.375</div>
+      <div class="stub-sub" id="t-split">Vuelo y visas $2.469 · en Japón $1.226 · extras $201</div>
+    </div>
+  </header>
+
+  <section class="controls" aria-label="Ajustes del presupuesto">
+    <div class="ctl"><span>Mes del viaje</span>
+      <div class="seg" role="radiogroup" aria-label="Mes del viaje">
+        <label><input type="radio" name="mon" id="mon-ago" value="ago" checked=""><span>Agosto</span></label>
+        <label><input type="radio" name="mon" id="mon-sep" value="sep"><span>Septiembre</span></label>
+        <label><input type="radio" name="mon" id="mon-oct" value="oct"><span>Octubre</span></label>
+      </div></div>
+    <div class="ctl"><span>Hospedaje</span>
+      <div class="seg" role="radiogroup" aria-label="Nivel de hospedaje">
+        <label><input type="radio" name="lvl" id="lvl-0" value="0"><span>Económico</span></label>
+        <label><input type="radio" name="lvl" id="lvl-1" value="1" checked=""><span>Medio</span></label>
+        <label><input type="radio" name="lvl" id="lvl-2" value="2"><span>Alto</span></label>
+      </div></div>
+    <div class="ctl"><span>Traslados con valijas</span>
+      <div class="seg" role="radiogroup" aria-label="Traslados con valijas">
+        <label><input type="radio" name="mode" id="mode-tren" value="tren" checked=""><span>Tren</span></label>
+        <label><input type="radio" name="mode" id="mode-taxi" value="taxi"><span>Taxi o Uber</span></label>
+      </div></div>
+    <label class="check"><input type="checkbox" id="opt"> Incluir opcionales</label>
+  </section>
+  <div class="legend" style="margin-top:-30px"><span class="chip v">validado</span> precio consultado el 20 oct 2026 <span class="chip e">estimado</span> referencia a confirmar <span class="chip e" style="opacity:.8">proyección</span> calculado sobre agosto <span class="chip o">opcional</span></div>
+  <div class="month-note" id="month-note" style="margin-top:-24px"><b>Agosto:</b> precios de vuelo y hospedaje validados. El 15 todavía es Obon (trenes y atracciones llenos), hace ~35 °C y es temporada de tifones. El 16, Kioto enciende el Gozan no Okuribi; esta ruta está en Tokio ese día.</div>
+
+  <section id="votar">
+    <div class="sec-head"><h2>Votá tus opciones</h2><p>Elegí arriba el mes, el hospedaje y los traslados, escribí tu nombre y mandá tu elección al grupo por WhatsApp.</p></div>
+    <div class="grid2">
+      <div class="vote-box">
+        <div class="vote-mine" id="vote-mine"><div><span>Mes</span><b>Agosto</b></div><div><span>Hospedaje</span><b>Medio</b></div><div><span>Traslados</span><b>Tren</b></div><div><span>Opcionales</span><b>No</b></div><div><span>Total por persona</span><b>$3.896</b></div></div>
+        <div class="vote-actions">
+          <button type="button" class="btn" id="vote-save" hidden="">Guardar mi voto</button>
+          <span class="vote-status" id="vote-status" aria-live="polite">El mensaje se arma con lo que elegiste arriba.</span>
+        </div>
+        <div class="ctl"><span>Tu nombre (para el mensaje)</span><input type="text" id="vote-name" class="num" maxlength="40" placeholder="Ej.: Pablo"></div>
+        <div class="vote-actions">
+          <a class="btn alt" id="vote-wa" href="https://wa.me/?text=Jap%C3%B3n%202027%3A%20viajo%20en%20agosto%2C%20hospedaje%20medio%2C%20traslados%20con%20valijas%20en%20tren%2C%20sin%20opcionales.%20Total%20estimado%20%243.896%20por%20persona%3B%20ahorro%20%24637%20al%20mes%20hasta%20febrero%20y%20%24347%20despu%C3%A9s." target="_blank" rel="noopener">Enviar por WhatsApp ↗</a>
+          <button type="button" class="btn alt" id="vote-copy">Copiar texto</button>
+        </div>
+        <textarea id="vote-text" class="num" rows="4" readonly="" aria-label="Texto para enviar al grupo"></textarea>
+      </div>
+    </div>
+  </section>
+
+  <section class="linemap" aria-label="Ruta en tren">
+    <ol class="line">
+      <li style="--c:var(--tokyo)"><span class="st">東京</span><span class="lat">Tokio</span><span class="n" id="ln-0">3 noches · 15–18 ago</span></li>
+      <li style="--c:var(--kyoto)"><span class="st">京都</span><span class="lat">Kioto</span><span class="n" id="ln-1">2 noches · 18–20 ago</span></li>
+      <li style="--c:var(--nara)"><span class="st">奈良</span><span class="lat">Nara</span><span class="n" id="ln-2">de paso · 20 ago</span></li>
+      <li style="--c:var(--osaka)"><span class="st">大阪</span><span class="lat">Osaka</span><span class="n" id="ln-3">2 noches · 20–22 ago</span></li>
+      <li style="--c:var(--tokyo)"><span class="st">東京</span><span class="lat">Tokio</span><span class="n" id="ln-4">2 noches · 22–24 ago</span></li>
+    </ol>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Mapas de la ruta</h2><p>Los círculos numerados son los lugares en el orden en que se visitan; los cuadrados oscuros, los Airbnb (E económico, M medio, A alto). Elegí un día para ver su recorrido.</p></div>
+    <div class="fine" style="max-width:none"><p><b>Ruta revisada.</b> El orden Tokio → Kioto → Nara → Osaka → Tokio es el más corto entrando y saliendo por Haneda. Dentro de cada ciudad se hicieron cuatro ajustes:</p><ul>
+      <li>La primera base en Tokio pasó de Shinjuku a <b>Asakusa</b>: hay tren directo desde Haneda sin transbordo y quedan cerca el Sensō-ji, Akihabara, Disney y la estación de Tokio. Además los Airbnb salen más baratos.</li>
+      <li>Día 2 en una sola dirección, de norte a sur: Asakusa → Akihabara → Tsukiji → Tokyo Tower → Tsukishima.</li>
+      <li>Día 5: Arashiyama antes que Kinkaku-ji, por la línea JR directa desde Fushimi y con menos gente a la mañana.</li>
+      <li>El cruce de Shibuya pasó al día 9, junto a Shibuya Sky, y el primer día cierra cerca de la base.</li>
+    </ul></div>
+    <div class="maps" id="maps"><figure class="map wide"><div class="map-frame"><img src="img/maps/ruta.jpg" width="892" height="334" alt="Mapa de La ruta completa"><svg class="route" viewBox="0 0 892 334" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="ar-ruta" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M1 1 L9 5 L1 9 Z" style="fill:var(--air)"></path></marker></defs><polyline points="825.1,90.1 810.7,58.8 93.1,215.8 107.8,281.7 46.3,286.1 810.7,58.8 825.1,90.1" fill="none" style="stroke:var(--air)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="" opacity="0.75" marker-mid="url(#ar-ruta)" marker-end="url(#ar-ruta)"></polyline></svg><span class="pin city" style="left:92.5%;top:26.99%;--c:var(--air)" aria-hidden="true"></span><span class="citylabel" style="left:92.5%;top:26.99%">Haneda</span><span class="pin city" style="left:90.89%;top:17.59%;--c:var(--tokyo)" aria-hidden="true"></span><span class="citylabel" style="left:90.89%;top:17.59%">Tokio</span><span class="pin city" style="left:10.44%;top:64.62%;--c:var(--kyoto)" aria-hidden="true"></span><span class="citylabel" style="left:10.44%;top:64.62%">Kioto</span><span class="pin city" style="left:12.09%;top:84.33%;--c:var(--nara)" aria-hidden="true"></span><span class="citylabel" style="left:12.09%;top:84.33%">Nara</span><span class="pin city" style="left:5.19%;top:85.67%;--c:var(--osaka)" aria-hidden="true"></span><span class="citylabel" style="left:5.19%;top:85.67%">Osaka</span></div><figcaption class="attrib">© colaboradores de OpenStreetMap</figcaption></figure><figure class="map"><div class="map-frame"><img src="img/maps/tokio.jpg" width="961" height="896" alt="Mapa de Tokio"><svg class="route" viewBox="0 0 961 896" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="ar-tokio" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M1 1 L9 5 L1 9 Z" style="fill:var(--tokyo)"></path></marker></defs><polyline points="524.1,791.5 574.6,172.6 573.4,198.8" fill="none" style="stroke:var(--tokyo)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="" opacity="0.75" marker-mid="url(#ar-tokio)" marker-end="url(#ar-tokio)"></polyline><polyline points="574.6,172.6 573.4,198.8 504.6,257.6 497.7,375.6 424.0,400.3 535.3,385.6 574.6,172.6" fill="none" style="stroke:var(--tokyo)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 5" opacity="0.75" marker-mid="url(#ar-tokio)" marker-end="url(#ar-tokio)"></polyline><polyline points="574.6,172.6 830.9,514.7" fill="none" style="stroke:var(--tokyo)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="2 5" opacity="0.75" marker-mid="url(#ar-tokio)" marker-end="url(#ar-tokio)"></polyline><polyline points="574.6,172.6 487.2,319.3" fill="none" style="stroke:var(--tokyo)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="12 4 2 4" opacity="0.75" marker-mid="url(#ar-tokio)" marker-end="url(#ar-tokio)"></polyline><polyline points="487.2,319.3 218.1,319.3 144.9,99.4 290.3,277.3 218.1,319.3" fill="none" style="stroke:var(--tokyo)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 3" opacity="0.75" marker-mid="url(#ar-tokio)" marker-end="url(#ar-tokio)"></polyline><polyline points="218.1,319.3 289.7,336.5 293.2,397.1 218.1,319.3" fill="none" style="stroke:var(--tokyo)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="1 4" opacity="0.75" marker-mid="url(#ar-tokio)" marker-end="url(#ar-tokio)"></polyline><polyline points="218.1,319.3 524.1,791.5" fill="none" style="stroke:var(--tokyo)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="10 6" opacity="0.75" marker-mid="url(#ar-tokio)" marker-end="url(#ar-tokio)"></polyline></svg><button type="button" class="pin" style="left:54.54%;top:88.34%;--c:var(--tokyo)" data-label="Haneda" aria-label="Haneda">1</button><button type="button" class="pin" style="left:59.67%;top:22.19%;--c:var(--tokyo)" data-label="Sensō-ji y Hoppy Dori (Asakusa)" aria-label="Sensō-ji y Hoppy Dori (Asakusa)">2</button><button type="button" class="pin" style="left:52.51%;top:28.75%;--c:var(--tokyo)" data-label="Akihabara" aria-label="Akihabara">3</button><button type="button" class="pin" style="left:51.79%;top:41.92%;--c:var(--tokyo)" data-label="Clase de sushi (Tsukiji)" aria-label="Clase de sushi (Tsukiji)">4</button><button type="button" class="pin" style="left:44.12%;top:44.68%;--c:var(--tokyo)" data-label="Tokyo Tower" aria-label="Tokyo Tower">5</button><button type="button" class="pin" style="left:55.7%;top:43.04%;--c:var(--tokyo)" data-label="Monjayaki en Tsukishima" aria-label="Monjayaki en Tsukishima">6</button><button type="button" class="pin" style="left:86.46%;top:57.44%;--c:var(--tokyo)" data-label="Tokyo DisneySea" aria-label="Tokyo DisneySea">7</button><button type="button" class="pin" style="left:50.7%;top:35.64%;--c:var(--tokyo)" data-label="Estación de Tokio (Shinkansen)" aria-label="Estación de Tokio (Shinkansen)">8</button><button type="button" class="pin" style="left:15.08%;top:11.09%;--c:var(--tokyo)" data-label="Harry Potter Studio Tour" aria-label="Harry Potter Studio Tour">9</button><button type="button" class="pin" style="left:30.21%;top:30.95%;--c:var(--tokyo)" data-label="Omoide Yokocho (Shinjuku)" aria-label="Omoide Yokocho (Shinjuku)">10</button><button type="button" class="pin" style="left:30.15%;top:37.56%;--c:var(--tokyo)" data-label="Santuario Meiji y Harajuku" aria-label="Santuario Meiji y Harajuku">11</button><button type="button" class="pin" style="left:30.51%;top:44.32%;--c:var(--tokyo)" data-label="Cruce de Shibuya y Shibuya Sky" aria-label="Cruce de Shibuya y Shibuya Sky">12</button><button type="button" class="pin bnb dim" style="left:66.76%;top:16.9%" data-label="Airbnb económico · Tokio 1" aria-label="Airbnb económico · Tokio 1">E1</button><button type="button" class="pin bnb" style="left:59.79%;top:19.26%" data-label="Airbnb medio · Tokio 1" aria-label="Airbnb medio · Tokio 1">M1</button><button type="button" class="pin bnb dim" style="left:57.48%;top:20.34%" data-label="Airbnb alto · Tokio 1" aria-label="Airbnb alto · Tokio 1">A1</button><button type="button" class="pin bnb dim" style="left:15.36%;top:20.33%" data-label="Airbnb económico · Tokio 2" aria-label="Airbnb económico · Tokio 2">E2</button><button type="button" class="pin bnb" style="left:22.69%;top:35.64%" data-label="Airbnb medio · Tokio 2" aria-label="Airbnb medio · Tokio 2">M2</button><button type="button" class="pin bnb dim" style="left:24.3%;top:41.68%" data-label="Airbnb alto · Tokio 2" aria-label="Airbnb alto · Tokio 2">A2</button></div><div class="map-legend"><h3>Tokio</h3><div class="daychips" role="group" aria-label="Elegir día en el mapa de Tokio"><button type="button" data-map="tokio" data-day="all" aria-pressed="true">Todos</button><button type="button" data-map="tokio" data-day="1" aria-pressed="false">Día 1</button><button type="button" data-map="tokio" data-day="2" aria-pressed="false">Día 2</button><button type="button" data-map="tokio" data-day="3" aria-pressed="false">Día 3</button><button type="button" data-map="tokio" data-day="4" aria-pressed="false">Día 4</button><button type="button" data-map="tokio" data-day="8" aria-pressed="false">Día 8</button><button type="button" data-map="tokio" data-day="9" aria-pressed="false">Día 9</button><button type="button" data-map="tokio" data-day="10" aria-pressed="false">Día 10</button></div><ol><li style="--c:var(--tokyo)"><span class="k">1</span><span>Haneda</span></li><li style="--c:var(--tokyo)"><span class="k">2</span><span>Sensō-ji y Hoppy Dori (Asakusa)</span></li><li style="--c:var(--tokyo)"><span class="k">3</span><span>Akihabara</span></li><li style="--c:var(--tokyo)"><span class="k">4</span><span>Clase de sushi (Tsukiji)</span></li><li style="--c:var(--tokyo)"><span class="k">5</span><span>Tokyo Tower</span></li><li style="--c:var(--tokyo)"><span class="k">6</span><span>Monjayaki en Tsukishima</span></li><li style="--c:var(--tokyo)"><span class="k">7</span><span>Tokyo DisneySea</span></li><li style="--c:var(--tokyo)"><span class="k">8</span><span>Estación de Tokio (Shinkansen)</span></li><li style="--c:var(--tokyo)"><span class="k">9</span><span>Harry Potter Studio Tour</span></li><li style="--c:var(--tokyo)"><span class="k">10</span><span>Omoide Yokocho (Shinjuku)</span></li><li style="--c:var(--tokyo)"><span class="k">11</span><span>Santuario Meiji y Harajuku</span></li><li style="--c:var(--tokyo)"><span class="k">12</span><span>Cruce de Shibuya y Shibuya Sky</span></li><li class="sub">Airbnb nivel medio</li><li><span class="k bnb">M1</span><span>Casa en Asakusa · Tokio · estadía 1</span></li><li><span class="k bnb">M2</span><span>Casa en Shibuya (Hatagaya) · Tokio · estadía 2</span></li></ol></div><figcaption class="attrib">© colaboradores de OpenStreetMap</figcaption></figure><figure class="map"><div class="map-frame"><img src="img/maps/kioto.jpg" width="874" height="676" alt="Mapa de Kioto"><svg class="route" viewBox="0 0 874 676" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="ar-kioto" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M1 1 L9 5 L1 9 Z" style="fill:var(--kyoto)"></path></marker></defs><polyline points="605.3,457.3 672.5,468.3 640.9,320.8 757.9,392.6 700.9,337.2 672.5,468.3" fill="none" style="stroke:var(--kyoto)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="" opacity="0.75" marker-mid="url(#ar-kioto)" marker-end="url(#ar-kioto)"></polyline><polyline points="672.5,468.3 686.3,590.3 95.6,235.5 432.9,76.1 676.4,311.6 672.5,468.3" fill="none" style="stroke:var(--kyoto)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 5" opacity="0.75" marker-mid="url(#ar-kioto)" marker-end="url(#ar-kioto)"></polyline><polyline points="672.5,468.3 605.3,457.3" fill="none" style="stroke:var(--kyoto)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="2 5" opacity="0.75" marker-mid="url(#ar-kioto)" marker-end="url(#ar-kioto)"></polyline></svg><button type="button" class="pin" style="left:69.26%;top:67.65%;--c:var(--kyoto)" data-label="Estación de Kioto" aria-label="Estación de Kioto">1</button><button type="button" class="pin" style="left:73.33%;top:47.46%;--c:var(--kyoto)" data-label="Mercado Nishiki" aria-label="Mercado Nishiki">2</button><button type="button" class="pin" style="left:86.72%;top:58.08%;--c:var(--kyoto)" data-label="Kiyomizu-dera" aria-label="Kiyomizu-dera">3</button><button type="button" class="pin" style="left:80.19%;top:49.88%;--c:var(--kyoto)" data-label="Gion" aria-label="Gion">4</button><button type="button" class="pin" style="left:78.52%;top:87.32%;--c:var(--kyoto)" data-label="Fushimi Inari" aria-label="Fushimi Inari">5</button><button type="button" class="pin" style="left:10.94%;top:34.83%;--c:var(--kyoto)" data-label="Arashiyama" aria-label="Arashiyama">6</button><button type="button" class="pin" style="left:49.53%;top:11.26%;--c:var(--kyoto)" data-label="Kinkaku-ji" aria-label="Kinkaku-ji">7</button><button type="button" class="pin" style="left:77.39%;top:46.09%;--c:var(--kyoto)" data-label="Pontocho" aria-label="Pontocho">8</button><button type="button" class="pin bnb dim" style="left:65.12%;top:66.89%" data-label="Airbnb económico · Kioto" aria-label="Airbnb económico · Kioto">E</button><button type="button" class="pin bnb" style="left:76.94%;top:69.28%" data-label="Airbnb medio · Kioto" aria-label="Airbnb medio · Kioto">M</button><button type="button" class="pin bnb dim" style="left:68.79%;top:57.13%" data-label="Airbnb alto · Kioto" aria-label="Airbnb alto · Kioto">A</button></div><div class="map-legend"><h3>Kioto</h3><div class="daychips" role="group" aria-label="Elegir día en el mapa de Kioto"><button type="button" data-map="kioto" data-day="all" aria-pressed="true">Todos</button><button type="button" data-map="kioto" data-day="4" aria-pressed="false">Día 4</button><button type="button" data-map="kioto" data-day="5" aria-pressed="false">Día 5</button><button type="button" data-map="kioto" data-day="6" aria-pressed="false">Día 6</button></div><ol><li style="--c:var(--kyoto)"><span class="k">1</span><span>Estación de Kioto</span></li><li style="--c:var(--kyoto)"><span class="k">2</span><span>Mercado Nishiki</span></li><li style="--c:var(--kyoto)"><span class="k">3</span><span>Kiyomizu-dera</span></li><li style="--c:var(--kyoto)"><span class="k">4</span><span>Gion</span></li><li style="--c:var(--kyoto)"><span class="k">5</span><span>Fushimi Inari</span></li><li style="--c:var(--kyoto)"><span class="k">6</span><span>Arashiyama</span></li><li style="--c:var(--kyoto)"><span class="k">7</span><span>Kinkaku-ji</span></li><li style="--c:var(--kyoto)"><span class="k">8</span><span>Pontocho</span></li><li class="sub">Airbnb nivel medio</li><li><span class="k bnb">M</span><span>Casa en Higashiyama · Kioto</span></li></ol></div><figcaption class="attrib">© colaboradores de OpenStreetMap</figcaption></figure><figure class="map"><div class="map-frame"><img src="img/maps/osaka.jpg" width="1515" height="638" alt="Mapa de Nara y Osaka"><svg class="route" viewBox="0 0 1515 638" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="ar-osaka" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M1 1 L9 5 L1 9 Z" style="fill:var(--osaka)"></path></marker></defs><polyline points="1340.2,323.4 375.9,396.8 354.2,395.3" fill="none" style="stroke:var(--osaka)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="" opacity="0.75" marker-mid="url(#ar-osaka)" marker-end="url(#ar-osaka)"></polyline><polyline points="375.9,396.8 153.2,407.0 368.8,452.7 375.9,396.8" fill="none" style="stroke:var(--osaka)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="8 5" opacity="0.75" marker-mid="url(#ar-osaka)" marker-end="url(#ar-osaka)"></polyline><polyline points="375.9,396.8 350.9,166.1" fill="none" style="stroke:var(--osaka)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="2 5" opacity="0.75" marker-mid="url(#ar-osaka)" marker-end="url(#ar-osaka)"></polyline></svg><button type="button" class="pin" style="left:88.46%;top:50.69%;--c:var(--osaka)" data-label="Parque de Nara y Tōdai-ji" aria-label="Parque de Nara y Tōdai-ji">1</button><button type="button" class="pin" style="left:23.38%;top:61.96%;--c:var(--osaka)" data-label="Dotonbori" aria-label="Dotonbori">2</button><button type="button" class="pin" style="left:10.11%;top:63.8%;--c:var(--osaka)" data-label="Universal Studios Japan" aria-label="Universal Studios Japan">3</button><button type="button" class="pin" style="left:24.34%;top:70.96%;--c:var(--osaka)" data-label="Shinsekai" aria-label="Shinsekai">4</button><button type="button" class="pin" style="left:23.16%;top:26.04%;--c:var(--osaka)" data-label="Shin-Osaka (Shinkansen)" aria-label="Shin-Osaka (Shinkansen)">5</button><button type="button" class="pin bnb dim" style="left:25.49%;top:65.24%" data-label="Airbnb económico · Osaka" aria-label="Airbnb económico · Osaka">E</button><button type="button" class="pin bnb" style="left:24.81%;top:62.19%" data-label="Airbnb medio · Osaka" aria-label="Airbnb medio · Osaka">M</button><button type="button" class="pin bnb dim" style="left:22.13%;top:78.78%" data-label="Airbnb alto · Osaka" aria-label="Airbnb alto · Osaka">A</button></div><div class="map-legend"><h3>Nara y Osaka</h3><div class="daychips" role="group" aria-label="Elegir día en el mapa de Nara y Osaka"><button type="button" data-map="osaka" data-day="all" aria-pressed="true">Todos</button><button type="button" data-map="osaka" data-day="6" aria-pressed="false">Día 6</button><button type="button" data-map="osaka" data-day="7" aria-pressed="false">Día 7</button><button type="button" data-map="osaka" data-day="8" aria-pressed="false">Día 8</button></div><ol><li style="--c:var(--osaka)"><span class="k">1</span><span>Parque de Nara y Tōdai-ji</span></li><li style="--c:var(--osaka)"><span class="k">2</span><span>Dotonbori</span></li><li style="--c:var(--osaka)"><span class="k">3</span><span>Universal Studios Japan</span></li><li style="--c:var(--osaka)"><span class="k">4</span><span>Shinsekai</span></li><li style="--c:var(--osaka)"><span class="k">5</span><span>Shin-Osaka (Shinkansen)</span></li><li class="sub">Airbnb nivel medio</li><li><span class="k bnb">M</span><span>Departamento en Osaka · Osaka</span></li></ol></div><figcaption class="attrib">© colaboradores de OpenStreetMap</figcaption></figure></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Dónde dormir</h2><p>Casas o departamentos enteros para 6 con al menos 2 baños, buscados en Airbnb para las fechas exactas. El precio es el total que muestra Airbnb para la estadía; puede sumar el impuesto local de alojamiento.</p></div>
+    <div class="stays" id="stays"><div class="stay-block" style="--c:var(--tokyo)"><div class="stay-head"><h3><span>東京</span>Tokio · estadía 1 · Asakusa</h3><span class="mkt">3 noches, dom 15 ago al mié 18 ago · en la zona: desde $436, mediana $775 (16 opciones)</span></div><div class="bnbs"><article class="bnb-card"><img src="img/airbnb/t1_0.jpg" alt="Casa en Sumida" loading="lazy"><span class="bnb-lvl">Económico</span><div class="bnb-body"><div class="bnb-title">Casa en Sumida</div><div class="bnb-sub">A 5 min de Higashi-Mukojima, 10 min a Asakusa y Skytree</div><div class="bnb-meta"><span>2 hab · 5 camas · 2 baños</span><span>★ 5.0 (24)</span></div><div class="bnb-price"><b>$436</b><small>total 3 noches · $24 por persona y noche</small><span class="chip v">validado</span></div><a class="bnb-link" href="https://www.airbnb.com/rooms/1578856303694345629?adults=6&amp;check_in=2027-08-15&amp;check_out=2027-08-18" target="_blank" rel="noopener">Ver anuncio en Airbnb ↗</a></div></article><article class="bnb-card sel"><img src="img/airbnb/t1_1.jpg" alt="Casa en Asakusa" loading="lazy"><span class="bnb-lvl">Medio</span><div class="bnb-body"><div class="bnb-title">Casa en Asakusa</div><div class="bnb-sub">Edificio entero nuevo de 100 m², a pasos del Sensō-ji</div><div class="bnb-meta"><span>3 hab · 4 camas · 2 baños</span><span>★ 4.93 (28)</span></div><div class="bnb-price"><b>$583</b><small>total 3 noches · $32 por persona y noche</small><span class="chip v">validado</span></div><a class="bnb-link" href="https://www.airbnb.com/rooms/1633847850021457638?adults=6&amp;check_in=2027-08-15&amp;check_out=2027-08-18" target="_blank" rel="noopener">Ver anuncio en Airbnb ↗</a></div></article><article class="bnb-card"><img src="img/airbnb/t1_2.jpg" alt="Casa en Asakusa (Yuyutei)" loading="lazy"><span class="bnb-lvl">Alto</span><div class="bnb-body"><div class="bnb-title">Casa en Asakusa (Yuyutei)</div><div class="bnb-sub">Casa japonesa tradicional en Asakusa</div><div class="bnb-meta"><span>3 hab · 7 camas · 3 baños</span><span>★ 4.91 (345)</span></div><div class="bnb-price"><b>$1.333</b><small>total 3 noches · $74 por persona y noche</small><span class="chip v">validado</span></div><a class="bnb-link" href="https://www.airbnb.com/rooms/17013981?adults=6&amp;check_in=2027-08-15&amp;check_out=2027-08-18" target="_blank" rel="noopener">Ver anuncio en Airbnb ↗</a></div></article></div></div><div class="stay-block" style="--c:var(--kyoto)"><div class="stay-head"><h3><span>京都</span>Kioto · Estación de Kioto</h3><span class="mkt">2 noches, mié 18 ago al vie 20 ago · en la zona: desde $383, mediana $632 (20 opciones)</span></div><div class="bnbs"><article class="bnb-card"><img src="img/airbnb/ky_0.jpg" alt="Casa tradicional en Kioto" loading="lazy"><span class="bnb-lvl">Económico</span><div class="bnb-body"><div class="bnb-title">Casa tradicional en Kioto</div><div class="bnb-sub">Casa entera cerca de la estación de Kioto</div><div class="bnb-meta"><span>5 hab · 8 camas · 3 baños</span><span>★ 4.93 (453)</span></div><div class="bnb-price"><b>$455</b><small>total 2 noches · $38 por persona y noche</small><span class="chip v">validado</span></div><a class="bnb-link" href="https://www.airbnb.com/rooms/18463958?adults=6&amp;check_in=2027-08-18&amp;check_out=2027-08-20" target="_blank" rel="noopener">Ver anuncio en Airbnb ↗</a></div></article><article class="bnb-card sel"><img src="img/airbnb/ky_1.jpg" alt="Casa en Higashiyama" loading="lazy"><span class="bnb-lvl">Medio</span><div class="bnb-body"><div class="bnb-title">Casa en Higashiyama</div><div class="bnb-sub">Machiya de 100 años con jardín, bicis incluidas</div><div class="bnb-meta"><span>3 hab · 6 camas · 2 baños</span><span>★ 4.96 (560)</span></div><div class="bnb-price"><b>$632</b><small>total 2 noches · $53 por persona y noche</small><span class="chip v">validado</span></div><a class="bnb-link" href="https://www.airbnb.com/rooms/18935194?adults=6&amp;check_in=2027-08-18&amp;check_out=2027-08-20" target="_blank" rel="noopener">Ver anuncio en Airbnb ↗</a></div></article><article class="bnb-card"><img src="img/airbnb/ky_2.jpg" alt="Casa en Kioto (TOKI Gojo)" loading="lazy"><span class="bnb-lvl">Alto</span><div class="bnb-body"><div class="bnb-title">Casa en Kioto (TOKI Gojo)</div><div class="bnb-sub">4 hab., bañera de cerámica Shigaraki, a 2 min de la estación</div><div class="bnb-meta"><span>4 hab · 5 camas dobles · 2 baños</span><span>★ 4.97 (29)</span></div><div class="bnb-price"><b>$773</b><small>total 2 noches · $64 por persona y noche</small><span class="chip v">validado</span></div><a class="bnb-link" href="https://www.airbnb.com/rooms/1644056329905227628?adults=6&amp;check_in=2027-08-18&amp;check_out=2027-08-20" target="_blank" rel="noopener">Ver anuncio en Airbnb ↗</a></div></article></div></div><div class="stay-block" style="--c:var(--osaka)"><div class="stay-head"><h3><span>大阪</span>Osaka · Namba</h3><span class="mkt">2 noches, vie 20 ago al dom 22 ago · en la zona: desde $218, mediana $455 (16 opciones)</span></div><div class="bnbs"><article class="bnb-card"><img src="img/airbnb/os_0.jpg" alt="Casa en Osaka" loading="lazy"><span class="bnb-lvl">Económico</span><div class="bnb-body"><div class="bnb-title">Casa en Osaka</div><div class="bnb-sub">A 10 min a pie de Dotonbori, 5 baños</div><div class="bnb-meta"><span>3 hab · 7 camas · 5 baños</span><span>★ 4.97 (79)</span></div><div class="bnb-price"><b>$235</b><small>total 2 noches · $20 por persona y noche</small><span class="chip v">validado</span></div><a class="bnb-link" href="https://www.airbnb.com/rooms/1412233947823914516?adults=6&amp;check_in=2027-08-20&amp;check_out=2027-08-22" target="_blank" rel="noopener">Ver anuncio en Airbnb ↗</a></div></article><article class="bnb-card sel"><img src="img/airbnb/os_1.jpg" alt="Departamento en Osaka" loading="lazy"><span class="bnb-lvl">Medio</span><div class="bnb-body"><div class="bnb-title">Departamento en Osaka</div><div class="bnb-sub">Vista al río Dotonbori, a pie de Namba y Shinsaibashi</div><div class="bnb-meta"><span>2 hab · 5 camas · 2 baños</span><span>★ 4.97 (68)</span></div><div class="bnb-price"><b>$517</b><small>total 2 noches · $43 por persona y noche</small><span class="chip v">validado</span></div><a class="bnb-link" href="https://www.airbnb.com/rooms/1386247738737242370?adults=6&amp;check_in=2027-08-20&amp;check_out=2027-08-22" target="_blank" rel="noopener">Ver anuncio en Airbnb ↗</a></div></article><article class="bnb-card"><img src="img/airbnb/os_2.jpg" alt="Casa en Osaka" loading="lazy"><span class="bnb-lvl">Alto</span><div class="bnb-body"><div class="bnb-title">Casa en Osaka</div><div class="bnb-sub">Casa japonesa de 136 m² para 8</div><div class="bnb-meta"><span>4 hab · 6 camas · 2 baños</span><span>★ 4.98 (104)</span></div><div class="bnb-price"><b>$797</b><small>total 2 noches · $66 por persona y noche</small><span class="chip v">validado</span></div><a class="bnb-link" href="https://www.airbnb.com/rooms/1381518135279946352?adults=6&amp;check_in=2027-08-20&amp;check_out=2027-08-22" target="_blank" rel="noopener">Ver anuncio en Airbnb ↗</a></div></article></div></div><div class="stay-block" style="--c:var(--tokyo)"><div class="stay-head"><h3><span>東京</span>Tokio · estadía 2 · Shibuya</h3><span class="mkt">2 noches, dom 22 ago al mar 24 ago · en la zona: desde $332, mediana $702 (17 opciones)</span></div><div class="bnbs"><article class="bnb-card"><img src="img/airbnb/t2_0.jpg" alt="Casa en Nakano" loading="lazy"><span class="bnb-lvl">Económico</span><div class="bnb-body"><div class="bnb-title">Casa en Nakano</div><div class="bnb-sub">A 2 min de la estación, 24 min a Shinjuku</div><div class="bnb-meta"><span>3 hab · 6 camas · 3 baños</span><span>★ 4.98 (49)</span></div><div class="bnb-price"><b>$411</b><small>total 2 noches · $34 por persona y noche</small><span class="chip v">validado</span></div><a class="bnb-link" href="https://www.airbnb.com/rooms/1536578645635127835?adults=6&amp;check_in=2027-08-22&amp;check_out=2027-08-24" target="_blank" rel="noopener">Ver anuncio en Airbnb ↗</a></div></article><article class="bnb-card sel"><img src="img/airbnb/t2_1.jpg" alt="Casa en Shibuya (Hatagaya)" loading="lazy"><span class="bnb-lvl">Medio</span><div class="bnb-body"><div class="bnb-title">Casa en Shibuya (Hatagaya)</div><div class="bnb-sub">Casa de estilo japonés, 2 paradas a Shinjuku</div><div class="bnb-meta"><span>2 hab · 5 camas · 2 baños</span><span>★ 5.0 (12)</span></div><div class="bnb-price"><b>$584</b><small>total 2 noches · $49 por persona y noche</small><span class="chip v">validado</span></div><a class="bnb-link" href="https://www.airbnb.com/rooms/1711313238692561027?adults=6&amp;check_in=2027-08-22&amp;check_out=2027-08-24" target="_blank" rel="noopener">Ver anuncio en Airbnb ↗</a></div></article><article class="bnb-card"><img src="img/airbnb/t2_2.jpg" alt="Casa en Shibuya" loading="lazy"><span class="bnb-lvl">Alto</span><div class="bnb-body"><div class="bnb-title">Casa en Shibuya</div><div class="bnb-sub">Casa de 5 hab. a 4 min a pie de la estación</div><div class="bnb-meta"><span>5 hab · 8 camas · 3 baños</span><span>★ 4.97 (79)</span></div><div class="bnb-price"><b>$781</b><small>total 2 noches · $65 por persona y noche</small><span class="chip v">validado</span></div><a class="bnb-link" href="https://www.airbnb.com/rooms/1424908843424016733?adults=6&amp;check_in=2027-08-22&amp;check_out=2027-08-24" target="_blank" rel="noopener">Ver anuncio en Airbnb ↗</a></div></article></div></div></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Cómo moverse: tren, taxi o Uber</h2><p>Para todo lo demás, tren y metro con tarjeta Suica o ICOCA (~$8 por día, ya incluido). La decisión real es qué hacer en los tramos con valijas.</p></div>
+    <div class="grid2">
+      <div class="fine">
+        <p><b>Uber en Japón funciona como app de taxis:</b> Uber Taxi llama a un taxi con licencia y cobra el taxímetro más un cargo de ~¥300–500 por pedido (en los 23 distritos de Tokio, ¥100 más). Uber Premium lleva hasta 5 personas. Para 6 con valijas hacen falta <b>dos autos</b>, o reservar un taxi grande (wagon o jumbo) en GO o con la empresa.</p>
+        <p><b>Tarifa de taxi en Tokio desde fines de abril de 2026:</b> ¥500 el primer kilómetro y ¥100 cada 232 m. Desde Haneda hay tarifa fija: ~¥7.800 a Shibuya y ~¥8.300 a Shinjuku, más peajes; de 22:00 a 5:00, 20–30% más.</p>
+        <p><b>Alternativa a los taxis:</b> mandar las valijas grandes de un alojamiento al siguiente con takkyubin (~¥2.000–3.000 por valija, llegan al día siguiente) y viajar livianos en tren.</p>
+        <p>Los precios de taxi de cada tramo son estimados por distancia; Kioto y Osaka usan una tarifa parecida a la de Tokio.</p>
+      </div>
+      <div style="display:grid;gap:10px;min-width:0">
+        <div class="box"><table class="sum compact" id="moves"><thead><tr><th>Día</th><th>Tramo con valijas</th><th class="cur">Tren o metro</th><th class="">Taxi o Uber (2 autos)</th></tr></thead><tbody><tr><td>Día 1</td><td>Haneda → Asakusa</td><td class="cur">$4</td><td class="">$19</td></tr><tr><td>Día 4</td><td>Asakusa → estación de Tokio</td><td class="cur">$1</td><td class="">$6</td></tr><tr><td>Día 4</td><td>Estación de Kioto → Airbnb</td><td class="cur">incluido</td><td class="">$3</td></tr><tr><td>Día 5</td><td>Arashiyama → Kinkaku-ji</td><td class="cur">incluido</td><td class="">$6</td></tr><tr><td>Día 6</td><td>Airbnb → estación de Kioto</td><td class="cur">$1</td><td class="">$3</td></tr><tr><td>Día 6</td><td>Namba → Airbnb</td><td class="cur">incluido</td><td class="">$2</td></tr><tr><td>Día 8</td><td>Airbnb → Shin-Osaka</td><td class="cur">$2</td><td class="">$7</td></tr><tr><td>Día 8</td><td>Estación de Tokio → Shibuya</td><td class="cur">$2</td><td class="">$11</td></tr><tr><td>Día 10</td><td>Shibuya → Haneda</td><td class="cur">$5</td><td class="">$19</td></tr><tr class="tot"><td></td><td>Total por persona</td><td class="cur">$15</td><td class="">$76</td></tr></tbody></table></div>
+        <p class="fine" style="margin:0">Usar taxi o Uber en todos los tramos con valijas cuesta <b id="moves-diff">$61 por persona ($368 el grupo)</b> más que el tren. Se cambia arriba en "Traslados con valijas".</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Día por día</h2><p>Horarios sugeridos y costo por persona de cada actividad. El total del día incluye la noche de hospedaje.</p></div>
+    <div class="days" id="days"><article class="day" style="--c:var(--air)" id="dia-0"><div class="day-side"><svg class="stamp" viewBox="0 0 120 120" role="img" aria-label="Sello del día 0"><rect x="4" y="4" width="112" height="112" rx="16" fill="none" stroke="currentColor" stroke-width="3"></rect><rect x="10" y="10" width="100" height="100" rx="11" fill="none" stroke="currentColor" stroke-width="1.2"></rect><g transform="translate(0,-6)"><path d="M28 62 L92 52 Q99 52 98 57 Q97 61 90 62 L28 66 Z" fill="currentColor"></path><path d="M58 58 L46 36 L54 36 L74 56 Z M62 62 L52 82 L60 82 L76 61 Z M32 62 L26 50 L32 50 L40 61 Z" fill="currentColor"></path></g><text x="60" y="103" text-anchor="middle" font-family="Dela Gothic One, sans-serif" font-size="16" fill="currentColor">出発</text></svg><div><div class="day-num">Día 0</div><div class="day-date">vie 13 ago – dom 15 ago</div></div></div><div class="day-main"><div class="day-head"><h3>De Quito a Tokio</h3><span class="base">En tránsito</span></div><div class="tt-wrap"><table class="tt"><tbody><tr class=""><td class="h">Vie 14:15</td><td class="what"><b>Quito → Bogotá → Toronto</b> <small>Avianca, llega a Toronto el sábado a las 07:20</small></td><td class="cost"></td></tr><tr class=""><td class="h">Sáb 13:20</td><td class="what"><b>Toronto → Tokio Haneda</b> <small>Air Canada directo, 13h20. Llega el domingo a las 15:40</small></td><td class="cost"></td></tr><tr class=""><td class="h">Total</td><td class="what"><b>Vuelo ida y vuelta + visas</b> <span class="chip v">validado</span><small>Avianca $859 + Air Canada $1.455 en dos boletos · visa Canadá ~$135 · visa Japón ~$20</small></td><td class="cost">$2.469</td></tr></tbody></table></div><div class="day-foot"><span class="stay">Sin hospedaje esta noche</span><span class="day-total">$2.469<small>vuelo y visas</small></span></div></div></article><article class="day" style="--c:var(--tokyo)" id="dia-1"><div class="day-side"><svg class="stamp" viewBox="0 0 120 120" role="img" aria-label="Sello del día 1"><rect x="4" y="4" width="112" height="112" rx="16" fill="none" stroke="currentColor" stroke-width="3"></rect><rect x="10" y="10" width="100" height="100" rx="11" fill="none" stroke="currentColor" stroke-width="1.2"></rect><g transform="translate(0,-6)"><path d="M28 62 L92 52 Q99 52 98 57 Q97 61 90 62 L28 66 Z" fill="currentColor"></path><path d="M58 58 L46 36 L54 36 L74 56 Z M62 62 L52 82 L60 82 L76 61 Z M32 62 L26 50 L32 50 L40 61 Z" fill="currentColor"></path></g><text x="60" y="103" text-anchor="middle" font-family="Dela Gothic One, sans-serif" font-size="16" fill="currentColor">羽田</text></svg><div><div class="day-num">Día 1</div><div class="day-date">dom 15 ago</div></div></div><div class="day-main"><div class="gallery one"><figure class="big"><img src="img/haneda.jpg" alt="Haneda, terminal 3" loading="eager"><figcaption>Haneda, terminal 3</figcaption></figure></div><div class="day-head"><h3>Llegada y primera noche en Asakusa</h3><span class="base">Base: Tokio (Asakusa)</span></div><div class="tt-wrap"><table class="tt"><tbody><tr class=""><td class="h">15:40</td><td class="what"><b>Aterrizaje en Haneda</b> <small>Migración, comprar tarjeta Welcome Suica y activar eSIM</small></td><td class="cost"></td></tr><tr class=""><td class="h">16:45</td><td class="what"><b>Haneda → Asakusa con valijas</b> <span class="chip e">estimado</span> <span class="chip v">tren</span><small>Keikyu + Toei Asakusa directo, ~45 min, sin transbordo</small></td><td class="cost">$4<span class="y">taxi/Uber: $19</span></td></tr><tr class=""><td class="h">18:30</td><td class="what"><b>Check-in en el Airbnb</b> </td><td class="cost"></td></tr><tr class=""><td class="h">19:30</td><td class="what"><b>Cena en Hoppy Dori</b> <span class="chip e">estimado</span><small>Calle de izakayas al lado del Sensō-ji</small></td><td class="cost">$19<span class="y">¥3.000</span></td></tr><tr class=""><td class="h">21:00</td><td class="what"><b>Skytree iluminado desde el río Sumida</b> <small>Paseo corto y gratis para estirar las piernas</small></td><td class="cost"></td></tr></tbody></table></div><div class="day-foot"><span class="stay">Noche: <b>Casa en Asakusa</b> · $32 por persona <span class="chip v">validado</span></span><span class="day-total">$56<small>por persona este día</small></span></div></div></article><article class="day" style="--c:var(--tokyo)" id="dia-2"><div class="day-side"><svg class="stamp" viewBox="0 0 120 120" role="img" aria-label="Sello del día 2"><rect x="4" y="4" width="112" height="112" rx="16" fill="none" stroke="currentColor" stroke-width="3"></rect><rect x="10" y="10" width="100" height="100" rx="11" fill="none" stroke="currentColor" stroke-width="1.2"></rect><g transform="translate(0,-6)"><path d="M60 22 L76 84 M60 22 L44 84 M49 64 H71 M53 48 H67 M47 72 L73 84 M73 72 L47 84" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path><rect x="51" y="40" width="18" height="7" fill="currentColor"></rect></g><text x="60" y="103" text-anchor="middle" font-family="Dela Gothic One, sans-serif" font-size="16" fill="currentColor">東京</text></svg><div><div class="day-num">Día 2</div><div class="day-date">lun 16 ago</div></div></div><div class="day-main"><div class="gallery two"><figure class="big"><img src="img/sensoji.jpg" alt="Kaminarimon, Sensō-ji" loading="eager"><figcaption>Kaminarimon, Sensō-ji</figcaption></figure><figure class="small"><img src="img/tokyotower.jpg" alt="Tokyo Tower de noche" loading="lazy"><figcaption>Tokyo Tower de noche</figcaption></figure></div><div class="day-head"><h3>Tokio tradicional y clase de sushi</h3><span class="base">Base: Tokio (Asakusa)</span></div><div class="tt-wrap"><table class="tt"><tbody><tr class=""><td class="h">08:00</td><td class="what"><b>Desayuno de konbini</b> <span class="chip e">estimado</span><small>Onigiri y café</small></td><td class="cost">$4<span class="y">¥600</span></td></tr><tr class=""><td class="h">08:30</td><td class="what"><b>Templo Sensō-ji temprano</b> <small>Antes de las multitudes. Entrada libre</small></td><td class="cost"></td></tr><tr class=""><td class="h">10:30</td><td class="what"><b>Akihabara</b> <small>Electrónica, anime y arcades. 10 min en metro</small></td><td class="cost"></td></tr><tr class=""><td class="h">12:30</td><td class="what"><b>Clase de sushi en Tsukiji</b> <span class="chip e">estimado</span><small>~2 h, incluye almorzar lo que preparan</small></td><td class="cost">$65<span class="y">¥10.000</span></td></tr><tr class=""><td class="h">15:00</td><td class="what"><b>Mercado exterior de Tsukiji</b> <small>Snacks y cuchillos japoneses</small></td><td class="cost"></td></tr><tr class=""><td class="h">16:30</td><td class="what"><b>Tokyo Tower al atardecer</b> <span class="chip e">estimado</span><small>Mirador principal (150 m)</small></td><td class="cost">$8<span class="y">¥1.200</span></td></tr><tr class=""><td class="h">19:00</td><td class="what"><b>Monjayaki en Tsukishima</b> <span class="chip e">estimado</span><small>Plato típico de Tokio a la plancha, a 10 min de la torre</small></td><td class="cost">$15<span class="y">¥2.400</span></td></tr><tr class=""><td class="h">Día</td><td class="what"><b>Metro y buses</b> <span class="chip e">estimado</span><small>Con Suica</small></td><td class="cost">$8<span class="y">¥1.200</span></td></tr></tbody></table></div><div class="day-foot"><span class="stay">Noche: <b>Casa en Asakusa</b> · $32 por persona <span class="chip v">validado</span></span><span class="day-total">$132<small>por persona este día</small></span></div></div></article><article class="day" style="--c:var(--tokyo)" id="dia-3"><div class="day-side"><svg class="stamp" viewBox="0 0 120 120" role="img" aria-label="Sello del día 3"><rect x="4" y="4" width="112" height="112" rx="16" fill="none" stroke="currentColor" stroke-width="3"></rect><rect x="10" y="10" width="100" height="100" rx="11" fill="none" stroke="currentColor" stroke-width="1.2"></rect><g transform="translate(0,-6)"><line x1="52.0" y1="44.0" x2="66.0" y2="44.0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></line><line x1="51.2" y1="47.0" x2="63.3" y2="54.0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></line><line x1="49.0" y1="49.2" x2="56.0" y2="61.3" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></line><line x1="46.0" y1="50.0" x2="46.0" y2="64.0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></line><line x1="43.0" y1="49.2" x2="36.0" y2="61.3" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></line><line x1="40.8" y1="47.0" x2="28.7" y2="54.0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></line><line x1="40.0" y1="44.0" x2="26.0" y2="44.0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></line><line x1="40.8" y1="41.0" x2="28.7" y2="34.0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></line><line x1="43.0" y1="38.8" x2="36.0" y2="26.7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></line><line x1="46.0" y1="38.0" x2="46.0" y2="24.0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></line><line x1="49.0" y1="38.8" x2="56.0" y2="26.7" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></line><line x1="51.2" y1="41.0" x2="63.3" y2="34.0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></line><line x1="84.0" y1="64.0" x2="94.0" y2="64.0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></line><line x1="82.8" y1="66.8" x2="89.9" y2="73.9" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></line><line x1="80.0" y1="68.0" x2="80.0" y2="78.0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></line><line x1="77.2" y1="66.8" x2="70.1" y2="73.9" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></line><line x1="76.0" y1="64.0" x2="66.0" y2="64.0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></line><line x1="77.2" y1="61.2" x2="70.1" y2="54.1" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></line><line x1="80.0" y1="60.0" x2="80.0" y2="50.0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></line><line x1="82.8" y1="61.2" x2="89.9" y2="54.1" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></line><path d="M30 86 H90" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></g><text x="60" y="103" text-anchor="middle" font-family="Dela Gothic One, sans-serif" font-size="16" fill="currentColor">舞浜</text></svg><div><div class="day-num">Día 3</div><div class="day-date">mar 17 ago</div></div></div><div class="day-main"><div class="gallery one"><figure class="big"><img src="img/disneysea.jpg" alt="Tokyo DisneySea" loading="eager"><figcaption>Tokyo DisneySea</figcaption></figure></div><div class="day-head"><h3>Tokyo DisneySea</h3><span class="base">Base: Tokio (Asakusa)</span></div><div class="note"><b>Martes:</b> el mejor día de la semana para el parque. Las entradas son por fecha y el precio varía entre ¥7.900 y ¥10.900; se asume el máximo.</div><div class="tt-wrap"><table class="tt"><tbody><tr class=""><td class="h">07:15</td><td class="what"><b>Metro + JR a Maihama</b> <span class="chip e">estimado</span><small>~45 min desde Asakusa, ida y vuelta</small></td><td class="cost">$5<span class="y">¥800</span></td></tr><tr class=""><td class="h">08:00</td><td class="what"><b>Apertura de Tokyo DisneySea</b> <small>Llegar 30–45 min antes de abrir</small></td><td class="cost"></td></tr><tr class=""><td class="h">Día</td><td class="what"><b>Entrada de 1 día</b> <span class="chip e">estimado</span><small>Precio variable según fecha</small></td><td class="cost">$70<span class="y">¥10.900</span></td></tr><tr class=""><td class="h">Día</td><td class="what"><b>Comidas dentro del parque</b> <span class="chip e">estimado</span><small>Precios de parque</small></td><td class="cost">$39<span class="y">¥6.000</span></td></tr><tr class=""><td class="h">20:30</td><td class="what"><b>Show nocturno y regreso</b> </td><td class="cost"></td></tr></tbody></table></div><div class="day-foot"><span class="stay">Noche: <b>Casa en Asakusa</b> · $32 por persona <span class="chip v">validado</span></span><span class="day-total">$147<small>por persona este día</small></span></div></div></article><article class="day" style="--c:var(--kyoto)" id="dia-4"><div class="day-side"><svg class="stamp" viewBox="0 0 120 120" role="img" aria-label="Sello del día 4"><rect x="4" y="4" width="112" height="112" rx="16" fill="none" stroke="currentColor" stroke-width="3"></rect><rect x="10" y="10" width="100" height="100" rx="11" fill="none" stroke="currentColor" stroke-width="1.2"></rect><g transform="translate(0,-6)"><path d="M60 26 L92 68 H28 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path><path d="M60 26 L68 37 L63 35 L60 39 L56 35 L52 37 Z" fill="currentColor"></path><path d="M18 86 H82 Q100 86 102 79 L84 74 H18 Z" fill="currentColor"></path></g><text x="60" y="103" text-anchor="middle" font-family="Dela Gothic One, sans-serif" font-size="16" fill="currentColor">京都</text></svg><div><div class="day-num">Día 4</div><div class="day-date">mié 18 ago</div></div></div><div class="day-main"><div class="gallery"><figure class="big"><img src="img/fuji.jpg" alt="Shinkansen y monte Fuji" loading="eager"><figcaption>Shinkansen y monte Fuji</figcaption></figure><figure class="small"><img src="img/kiyomizu.jpg" alt="Kiyomizu-dera (foto de otoño)" loading="lazy"><figcaption>Kiyomizu-dera (foto de otoño)</figcaption></figure><figure class="small"><img src="img/gion.jpg" alt="Hanamikoji, Gion" loading="lazy"><figcaption>Hanamikoji, Gion</figcaption></figure></div><div class="day-head"><h3>Shinkansen a Kioto</h3><span class="base">Base: Kioto</span></div><div class="note"><b>Asiento E:</b> en el Shinkansen hacia Kioto, el monte Fuji se ve por la ventanilla derecha (asiento E) unos 40 minutos después de salir, si el día está despejado.</div><div class="tt-wrap"><table class="tt"><tbody><tr class=""><td class="h">07:45</td><td class="what"><b>Check-out y desayuno</b> <span class="chip e">estimado</span></td><td class="cost">$4<span class="y">¥600</span></td></tr><tr class=""><td class="h">08:20</td><td class="what"><b>Asakusa → estación de Tokio con valijas</b> <span class="chip e">estimado</span> <span class="chip v">tren</span><small>Metro Ginza + JR, ~20 min</small></td><td class="cost">$1<span class="y">taxi/Uber: $6</span></td></tr><tr class=""><td class="h">09:00</td><td class="what"><b>Nozomi Tokio → Kioto</b> <span class="chip v">validado</span><small>2h15. Tarifa Hayatoku 21 (sin ella: ~¥14.170)</small></td><td class="cost">$80<span class="y">¥12.430</span></td></tr><tr class=""><td class="h">11:30</td><td class="what"><b>Estación de Kioto → Airbnb con valijas</b>  <span class="chip v">tren</span><small>Bus o a pie, incluido en los buses del día</small></td><td class="cost">incluido<span class="y">taxi/Uber: $3</span></td></tr><tr class=""><td class="h">12:30</td><td class="what"><b>Almuerzo en el mercado Nishiki</b> <span class="chip e">estimado</span><small>Comida al paso por el mercado</small></td><td class="cost">$13<span class="y">¥2.000</span></td></tr><tr class=""><td class="h">14:30</td><td class="what"><b>Kiyomizu-dera, Sannenzaka y Ninenzaka</b> <span class="chip e">estimado</span><small>Bajando a pie se llega a Gion</small></td><td class="cost">$3<span class="y">¥500</span></td></tr><tr class=""><td class="h">18:00</td><td class="what"><b>Gion al anochecer</b> <span class="chip e">estimado</span><small>Calle Hanamikoji, cena en la zona</small></td><td class="cost">$15<span class="y">¥2.400</span></td></tr><tr class=""><td class="h">Día</td><td class="what"><b>Buses de Kioto</b> <span class="chip e">estimado</span></td><td class="cost">$8<span class="y">¥1.200</span></td></tr></tbody></table></div><div class="day-foot"><span class="stay">Noche: <b>Casa en Higashiyama</b> · $55 por persona (incluye impuesto local ¥400) <span class="chip v">validado</span></span><span class="day-total">$180<small>por persona este día</small></span></div></div></article><article class="day" style="--c:var(--kyoto)" id="dia-5"><div class="day-side"><svg class="stamp" viewBox="0 0 120 120" role="img" aria-label="Sello del día 5"><rect x="4" y="4" width="112" height="112" rx="16" fill="none" stroke="currentColor" stroke-width="3"></rect><rect x="10" y="10" width="100" height="100" rx="11" fill="none" stroke="currentColor" stroke-width="1.2"></rect><g transform="translate(0,-6)"><path d="M26 34 Q60 26 94 34" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path><path d="M32 46 H88 M40 34 V86 M80 34 V86" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path><path d="M60 34 V46" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></g><text x="60" y="101" text-anchor="middle" font-family="Dela Gothic One, sans-serif" font-size="13" fill="currentColor">伏見稲荷</text></svg><div><div class="day-num">Día 5</div><div class="day-date">jue 19 ago</div></div></div><div class="day-main"><div class="gallery"><figure class="big"><img src="img/fushimi.jpg" alt="Fushimi Inari" loading="eager"><figcaption>Fushimi Inari</figcaption></figure><figure class="small"><img src="img/arashiyama.jpg" alt="Bosque de bambú de Arashiyama" loading="lazy"><figcaption>Bosque de bambú de Arashiyama</figcaption></figure><figure class="small"><img src="img/kinkakuji.jpg" alt="Kinkaku-ji" loading="lazy"><figcaption>Kinkaku-ji</figcaption></figure></div><div class="day-head"><h3>Kioto clásico</h3><span class="base">Base: Kioto</span></div><div class="note"><b>De mayo a septiembre</b> los restaurantes del río Kamo montan terrazas sobre el agua (kawayuka). Es una cena cara pero única.</div><div class="tt-wrap"><table class="tt"><tbody><tr class=""><td class="h">06:30</td><td class="what"><b>Fushimi Inari</b> <small>Los miles de torii, antes del calor y la multitud. Entrada libre</small></td><td class="cost"></td></tr><tr class=""><td class="h">08:30</td><td class="what"><b>Desayuno cerca del santuario</b> <span class="chip e">estimado</span></td><td class="cost">$10<span class="y">¥1.500</span></td></tr><tr class=""><td class="h">09:15</td><td class="what"><b>JR a Saga-Arashiyama</b> <small>Vía estación de Kioto, ~35 min</small></td><td class="cost"></td></tr><tr class=""><td class="h">10:00</td><td class="what"><b>Arashiyama: bosque de bambú y Tenryū-ji</b> <span class="chip e">estimado</span></td><td class="cost">$3<span class="y">¥500</span></td></tr><tr class=""><td class="h">12:00</td><td class="what"><b>Almuerzo en Arashiyama</b> <span class="chip e">estimado</span><small>Yudofu o soba</small></td><td class="cost">$10<span class="y">¥1.500</span></td></tr><tr class=""><td class="h">13:30</td><td class="what"><b>Arashiyama → Kinkaku-ji</b>  <span class="chip v">tren</span><small>Bus ~35 min, incluido; en taxi ~20 min</small></td><td class="cost">incluido<span class="y">taxi/Uber: $6</span></td></tr><tr class=""><td class="h">14:15</td><td class="what"><b>Kinkaku-ji, el Pabellón Dorado</b> <span class="chip e">estimado</span></td><td class="cost">$3<span class="y">¥500</span></td></tr><tr class=""><td class="h">15:30</td><td class="what"><b>Descanso en el Airbnb</b> <small>Las horas de más calor</small></td><td class="cost"></td></tr><tr class=""><td class="h">19:00</td><td class="what"><b>Cena en Pontocho</b> <span class="chip e">estimado</span><small>Callejón junto al río Kamo</small></td><td class="cost">$13<span class="y">¥2.000</span></td></tr><tr class="opt"><td class="h">19:00</td><td class="what"><b>Cambiar por cena en terraza kawayuka</b> <span class="chip o">opcional</span><small>Diferencia sobre la cena en Pontocho (total ~¥7.000)</small></td><td class="cost">$32<span class="y">¥5.000</span></td></tr><tr class=""><td class="h">Día</td><td class="what"><b>Trenes y buses de Kioto</b> <span class="chip e">estimado</span></td><td class="cost">$10<span class="y">¥1.500</span></td></tr></tbody></table></div><div class="day-foot"><span class="stay">Noche: <b>Casa en Higashiyama</b> · $55 por persona (incluye impuesto local ¥400) <span class="chip v">validado</span></span><span class="day-total">$104<small>por persona este día</small></span></div></div></article><article class="day" style="--c:var(--nara)" id="dia-6"><div class="day-side"><svg class="stamp" viewBox="0 0 120 120" role="img" aria-label="Sello del día 6"><rect x="4" y="4" width="112" height="112" rx="16" fill="none" stroke="currentColor" stroke-width="3"></rect><rect x="10" y="10" width="100" height="100" rx="11" fill="none" stroke="currentColor" stroke-width="1.2"></rect><g transform="translate(0,-6)"><ellipse cx="60" cy="64" rx="12" ry="17" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></ellipse><path d="M47 52 L36 46 M73 52 L84 46 M54 48 L48 30 M51 39 L41 34 M66 48 L72 30 M69 39 L79 34" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="55" cy="62" r="2" fill="currentColor"></circle><circle cx="65" cy="62" r="2" fill="currentColor"></circle></g><text x="60" y="103" text-anchor="middle" font-family="Dela Gothic One, sans-serif" font-size="16" fill="currentColor">奈良</text></svg><div><div class="day-num">Día 6</div><div class="day-date">vie 20 ago</div></div></div><div class="day-main"><div class="gallery"><figure class="big"><img src="img/naradeer.jpg" alt="Ciervos y shika senbei en Nara" loading="eager"><figcaption>Ciervos y shika senbei en Nara</figcaption></figure><figure class="small"><img src="img/todaiji.jpg" alt="Tōdai-ji" loading="lazy"><figcaption>Tōdai-ji</figcaption></figure><figure class="small"><img src="img/dotonbori.jpg" alt="Dotonbori" loading="lazy"><figcaption>Dotonbori</figcaption></figure></div><div class="day-head"><h3>Nara y llegada a Osaka</h3><span class="base">Base: Osaka</span></div><div class="tt-wrap"><table class="tt"><tbody><tr class=""><td class="h">08:00</td><td class="what"><b>Airbnb → estación de Kioto con valijas</b> <span class="chip e">estimado</span> <span class="chip v">tren</span><small>Bus, ~15 min</small></td><td class="cost">$1<span class="y">taxi/Uber: $3</span></td></tr><tr class=""><td class="h">08:30</td><td class="what"><b>JR Miyakoji Rapid Kioto → Nara</b> <span class="chip v">validado</span><small>45 min</small></td><td class="cost">$5<span class="y">¥720</span></td></tr><tr class=""><td class="h">09:30</td><td class="what"><b>Lockers para las maletas</b> <span class="chip e">estimado</span><small>Grandes, en la estación (se llenan rápido)</small></td><td class="cost">$5<span class="y">¥700</span></td></tr><tr class=""><td class="h">09:45</td><td class="what"><b>Parque de Nara y sus ciervos</b> <span class="chip e">estimado</span><small>Galletas shika senbei para darles</small></td><td class="cost">$1<span class="y">¥200</span></td></tr><tr class=""><td class="h">10:30</td><td class="what"><b>Tōdai-ji, el Gran Buda</b> <span class="chip e">estimado</span><small>El salón de madera más grande del mundo</small></td><td class="cost">$5<span class="y">¥800</span></td></tr><tr class=""><td class="h">13:00</td><td class="what"><b>Almuerzo: kakinoha-zushi</b> <span class="chip e">estimado</span><small>Sushi envuelto en hoja de caqui</small></td><td class="cost">$10<span class="y">¥1.500</span></td></tr><tr class=""><td class="h">15:00</td><td class="what"><b>Kintetsu Nara → Osaka-Namba</b> <span class="chip v">validado</span><small>~40 min</small></td><td class="cost">$4<span class="y">¥680</span></td></tr><tr class=""><td class="h">15:45</td><td class="what"><b>Namba → Airbnb con valijas</b>  <span class="chip v">tren</span><small>A pie, ~10 min</small></td><td class="cost">incluido<span class="y">taxi/Uber: $2</span></td></tr><tr class=""><td class="h">19:00</td><td class="what"><b>Dotonbori y crucero por el canal</b> <span class="chip e">estimado</span><small>Cartel de Glico, takoyaki y okonomiyaki</small></td><td class="cost">$10<span class="y">¥1.500</span></td></tr><tr class=""><td class="h">20:00</td><td class="what"><b>Cena callejera en Dotonbori</b> <span class="chip e">estimado</span></td><td class="cost">$19<span class="y">¥3.000</span></td></tr></tbody></table></div><div class="day-foot"><span class="stay">Noche: <b>Departamento en Osaka</b> · $44 por persona (incluye impuesto local ¥200) <span class="chip v">validado</span></span><span class="day-total">$105<small>por persona este día</small></span></div></div></article><article class="day" style="--c:var(--osaka)" id="dia-7"><div class="day-side"><svg class="stamp" viewBox="0 0 120 120" role="img" aria-label="Sello del día 7"><rect x="4" y="4" width="112" height="112" rx="16" fill="none" stroke="currentColor" stroke-width="3"></rect><rect x="10" y="10" width="100" height="100" rx="11" fill="none" stroke="currentColor" stroke-width="1.2"></rect><g transform="translate(0,-6)"><circle cx="60" cy="50" r="18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></circle><path d="M18 82 Q42 82 50 64 M70 64 Q78 82 102 82 M40 82 V70 M80 82 V70 M60 68 V82" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></g><text x="60" y="103" text-anchor="middle" font-family="Dela Gothic One, sans-serif" font-size="16" fill="currentColor">大阪</text></svg><div><div class="day-num">Día 7</div><div class="day-date">sáb 21 ago</div></div></div><div class="day-main"><div class="gallery two"><figure class="big"><img src="img/usj.jpg" alt="Universal Studios Japan" loading="eager"><figcaption>Universal Studios Japan</figcaption></figure><figure class="small"><img src="img/shinsekai.jpg" alt="Shinsekai y Tsūtenkaku" loading="lazy"><figcaption>Shinsekai y Tsūtenkaku</figcaption></figure></div><div class="day-head"><h3>Universal Studios Japan</h3><span class="base">Base: Osaka</span></div><div class="note"><b>Es sábado:</b> el día con más gente. Super Nintendo World puede requerir turno de ingreso; el Express Pass lo garantiza y ahorra horas de fila.</div><div class="tt-wrap"><table class="tt"><tbody><tr class=""><td class="h">07:30</td><td class="what"><b>JR a Universal City</b> <span class="chip e">estimado</span><small>~20 min, ida y vuelta</small></td><td class="cost">$4<span class="y">¥600</span></td></tr><tr class=""><td class="h">08:00</td><td class="what"><b>Apertura del parque</b> <small>Ir primero a Super Nintendo World</small></td><td class="cost"></td></tr><tr class=""><td class="h">Día</td><td class="what"><b>Entrada de 1 día</b> <span class="chip e">estimado</span><small>Precio variable según fecha</small></td><td class="cost">$70<span class="y">¥10.900</span></td></tr><tr class="opt"><td class="h">Día</td><td class="what"><b>Express Pass</b> <span class="chip o">opcional</span><small>Desde ~¥10.000; sube según el día</small></td><td class="cost">$65<span class="y">¥10.000</span></td></tr><tr class=""><td class="h">Día</td><td class="what"><b>Comidas dentro del parque</b> <span class="chip e">estimado</span></td><td class="cost">$26<span class="y">¥4.000</span></td></tr><tr class=""><td class="h">21:00</td><td class="what"><b>Kushikatsu en Shinsekai</b> <span class="chip e">estimado</span><small>Brochetas fritas, especialidad de Osaka</small></td><td class="cost">$13<span class="y">¥2.000</span></td></tr></tbody></table></div><div class="day-foot"><span class="stay">Noche: <b>Departamento en Osaka</b> · $44 por persona (incluye impuesto local ¥200) <span class="chip v">validado</span></span><span class="day-total">$157<small>por persona este día</small></span></div></div></article><article class="day" style="--c:var(--tokyo)" id="dia-8"><div class="day-side"><svg class="stamp" viewBox="0 0 120 120" role="img" aria-label="Sello del día 8"><rect x="4" y="4" width="112" height="112" rx="16" fill="none" stroke="currentColor" stroke-width="3"></rect><rect x="10" y="10" width="100" height="100" rx="11" fill="none" stroke="currentColor" stroke-width="1.2"></rect><g transform="translate(0,-6)"><rect x="32" y="50" width="56" height="34" rx="3" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></rect><path d="M32 50 L36 36 L88 30 L88 44 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path><path d="M46 34 L42 48 M60 33 L56 48 M74 31 L70 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></g><text x="60" y="103" text-anchor="middle" font-family="Dela Gothic One, sans-serif" font-size="16" fill="currentColor">東京</text></svg><div><div class="day-num">Día 8</div><div class="day-date">dom 22 ago</div></div></div><div class="day-main"><div class="gallery one"><figure class="big"><img src="img/studiotour.jpg" alt="Harry Potter Studio Tour Tokyo" loading="eager"><figcaption>Harry Potter Studio Tour Tokyo</figcaption></figure></div><div class="day-head"><h3>Regreso a Tokio y Harry Potter Studio Tour</h3><span class="base">Base: Tokio (Shibuya)</span></div><div class="note"><b>Ojo:</b> Universal Osaka ya tiene la zona de Harry Potter. El Studio Tour es distinto (sets, vestuario y utilería reales). Si al grupo le alcanza con uno, este día puede ser teamLab o compras.</div><div class="tt-wrap"><table class="tt"><tbody><tr class=""><td class="h">08:20</td><td class="what"><b>Airbnb → Shin-Osaka con valijas</b> <span class="chip e">estimado</span> <span class="chip v">tren</span><small>Metro Midosuji, ~15 min</small></td><td class="cost">$2<span class="y">taxi/Uber: $7</span></td></tr><tr class=""><td class="h">09:00</td><td class="what"><b>Nozomi Shin-Osaka → Tokio</b> <span class="chip v">validado</span><small>2h30. Tarifa Hayatoku 21 (sin ella: ¥14.720)</small></td><td class="cost">$84<span class="y">¥12.980</span></td></tr><tr class=""><td class="h">11:45</td><td class="what"><b>Estación de Tokio → Airbnb en Shibuya con valijas</b> <span class="chip e">estimado</span> <span class="chip v">tren</span><small>JR + Keio, ~25 min</small></td><td class="cost">$2<span class="y">taxi/Uber: $11</span></td></tr><tr class=""><td class="h">12:30</td><td class="what"><b>Check-in y almuerzo</b> <span class="chip e">estimado</span></td><td class="cost">$10<span class="y">¥1.500</span></td></tr><tr class=""><td class="h">14:00</td><td class="what"><b>Harry Potter Studio Tour Tokyo</b> <span class="chip e">estimado</span><small>Toshimaen. Recorrido de 3,5–4 h con horario reservado</small></td><td class="cost">$42<span class="y">¥6.500</span></td></tr><tr class=""><td class="h">19:30</td><td class="what"><b>Cena en Omoide Yokocho</b> <span class="chip e">estimado</span><small>Callejón de yakitori junto a la estación de Shinjuku</small></td><td class="cost">$23<span class="y">¥3.500</span></td></tr><tr class=""><td class="h">Día</td><td class="what"><b>Metro</b> <span class="chip e">estimado</span></td><td class="cost">$8<span class="y">¥1.200</span></td></tr></tbody></table></div><div class="day-foot"><span class="stay">Noche: <b>Casa en Shibuya (Hatagaya)</b> · $49 por persona <span class="chip v">validado</span></span><span class="day-total">$218<small>por persona este día</small></span></div></div></article><article class="day" style="--c:var(--tokyo)" id="dia-9"><div class="day-side"><svg class="stamp" viewBox="0 0 120 120" role="img" aria-label="Sello del día 9"><rect x="4" y="4" width="112" height="112" rx="16" fill="none" stroke="currentColor" stroke-width="3"></rect><rect x="10" y="10" width="100" height="100" rx="11" fill="none" stroke="currentColor" stroke-width="1.2"></rect><g transform="translate(0,-6)"><path d="M30 30 V60 M44 22 V60 M58 34 V60 M72 26 V60 M86 38 V60" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path><path d="M24 70 H44 M50 70 H70 M76 70 H96 M24 80 H44 M50 80 H70 M76 80 H96" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></g><text x="60" y="103" text-anchor="middle" font-family="Dela Gothic One, sans-serif" font-size="16" fill="currentColor">渋谷</text></svg><div><div class="day-num">Día 9</div><div class="day-date">lun 23 ago</div></div></div><div class="day-main"><div class="gallery"><figure class="big"><img src="img/shibuyasky.jpg" alt="Shibuya Sky" loading="eager"><figcaption>Shibuya Sky</figcaption></figure><figure class="small"><img src="img/shibuya.jpg" alt="Cruce de Shibuya" loading="lazy"><figcaption>Cruce de Shibuya</figcaption></figure><figure class="small"><img src="img/meiji.jpg" alt="Santuario Meiji" loading="lazy"><figcaption>Santuario Meiji</figcaption></figure></div><div class="day-head"><h3>Tokio moderno</h3><span class="base">Base: Tokio (Shibuya)</span></div><div class="tt-wrap"><table class="tt"><tbody><tr class=""><td class="h">09:00</td><td class="what"><b>Santuario Meiji</b> <small>Bosque en medio de la ciudad. Entrada libre</small></td><td class="cost"></td></tr><tr class=""><td class="h">10:30</td><td class="what"><b>Harajuku y Omotesando</b> <span class="chip e">estimado</span><small>Calle Takeshita, crepes y tiendas</small></td><td class="cost">$10<span class="y">¥1.500</span></td></tr><tr class=""><td class="h">13:00</td><td class="what"><b>Almuerzo</b> <span class="chip e">estimado</span></td><td class="cost">$10<span class="y">¥1.500</span></td></tr><tr class=""><td class="h">17:30</td><td class="what"><b>Shibuya Sky al atardecer y el cruce de Shibuya</b> <span class="chip e">estimado</span><small>Mirador al aire libre sobre el cruce; bajar al cruce de noche</small></td><td class="cost">$16<span class="y">¥2.500</span></td></tr><tr class=""><td class="h">19:30</td><td class="what"><b>Cena de despedida</b> <span class="chip e">estimado</span><small>Izakaya o yakiniku en grupo</small></td><td class="cost">$13<span class="y">¥2.000</span></td></tr><tr class="opt"><td class="h">21:00</td><td class="what"><b>Kart por las calles de Tokio</b> <span class="chip o">opcional</span><small>Requiere permiso internacional de conducir (Convención de 1949)</small></td><td class="cost">$77<span class="y">¥12.000</span></td></tr><tr class=""><td class="h">Día</td><td class="what"><b>Metro</b> <span class="chip e">estimado</span></td><td class="cost">$8<span class="y">¥1.200</span></td></tr></tbody></table></div><div class="day-foot"><span class="stay">Noche: <b>Casa en Shibuya (Hatagaya)</b> · $49 por persona <span class="chip v">validado</span></span><span class="day-total">$105<small>por persona este día</small></span></div></div></article><article class="day" style="--c:var(--air)" id="dia-10"><div class="day-side"><svg class="stamp" viewBox="0 0 120 120" role="img" aria-label="Sello del día 10"><rect x="4" y="4" width="112" height="112" rx="16" fill="none" stroke="currentColor" stroke-width="3"></rect><rect x="10" y="10" width="100" height="100" rx="11" fill="none" stroke="currentColor" stroke-width="1.2"></rect><g transform="translate(0,-6)"><g transform="rotate(-18 60 60)"><path d="M28 62 L92 52 Q99 52 98 57 Q97 61 90 62 L28 66 Z" fill="currentColor"></path><path d="M58 58 L46 36 L54 36 L74 56 Z M62 62 L52 82 L60 82 L76 61 Z M32 62 L26 50 L32 50 L40 61 Z" fill="currentColor"></path></g><path d="M22 86 H98" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></g><text x="60" y="103" text-anchor="middle" font-family="Dela Gothic One, sans-serif" font-size="16" fill="currentColor">羽田</text></svg><div><div class="day-num">Día 10</div><div class="day-date">mar 24 ago</div></div></div><div class="day-main"><div class="gallery one"><figure class="big"><img src="img/takeshita.jpg" alt="Calle Takeshita" loading="eager"><figcaption>Calle Takeshita</figcaption></figure></div><div class="day-head"><h3>Último paseo y vuelo de regreso</h3><span class="base">Salida desde Haneda</span></div><div class="tt-wrap"><table class="tt"><tbody><tr class=""><td class="h">08:30</td><td class="what"><b>Desayuno y compras de último momento</b> <span class="chip e">estimado</span><small>Don Quijote de Shibuya para recuerdos y snacks</small></td><td class="cost">$10<span class="y">¥1.500</span></td></tr><tr class=""><td class="h">10:30</td><td class="what"><b>Check-out</b> <small>Lockers en la estación hasta la tarde</small></td><td class="cost"></td></tr><tr class=""><td class="h">12:00</td><td class="what"><b>Almuerzo</b> <span class="chip e">estimado</span></td><td class="cost">$10<span class="y">¥1.500</span></td></tr><tr class=""><td class="h">15:00</td><td class="what"><b>Shibuya → Haneda con valijas</b> <span class="chip e">estimado</span> <span class="chip v">tren</span><small>Keikyu, ~45 min. Llegar 3 h antes del vuelo</small></td><td class="cost">$5<span class="y">taxi/Uber: $19</span></td></tr><tr class=""><td class="h">18:05</td><td class="what"><b>Haneda → Toronto</b> <small>Air Canada directo, llega a Toronto el mismo día a las 17:30</small></td><td class="cost"></td></tr><tr class=""><td class="h">Noche</td><td class="what"><b>Toronto → Bogotá → Quito</b> <small>Avianca, llegada a Quito al día siguiente</small></td><td class="cost"></td></tr></tbody></table></div><div class="day-foot"><span class="stay">Sin hospedaje esta noche</span><span class="day-total">$24<small>por persona este día</small></span></div></div></article></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Agosto, septiembre u octubre</h2><p>Mismo itinerario y mismos días de la semana, corrido 4 u 8 semanas. Cambia el vuelo, el hospedaje y lo que pasa en Japón esas fechas.</p></div>
+    <div class="box"><table class="sum" id="months"><thead><tr><th>Por persona</th><th class="cur">Agosto</th><th class="">Septiembre</th><th class="">Octubre</th></tr></thead><tbody><tr><td>Vuelo ida y vuelta</td><td class="cur">$2.314<small>validado</small></td><td class="">$1.967<small>proyección $1.851–$2.083</small></td><td class="">$2.083<small>proyección $1.967–$2.198</small></td></tr><tr><td>Visas (Canadá y Japón)</td><td class="cur">$155</td><td class="">$155</td><td class="">$155</td></tr><tr><td>Hospedaje medio, 9 noches</td><td class="cur">$394<small>Airbnb consultado</small></td><td class="">$427<small>Airbnb consultado</small></td><td class="">$441<small>Airbnb consultado</small></td></tr><tr><td>Trenes, entradas, comida y movilidad</td><td class="cur">$832</td><td class="">$832</td><td class="">$832</td></tr><tr><td>Extras (seguro, valija, eSIM, comisiones)</td><td class="cur">$201</td><td class="">$201</td><td class="">$201</td></tr><tr class="tot"><td>Total por persona</td><td class="cur">$3.896</td><td class="">$3.582</td><td class="">$3.712</td></tr><tr><td>Grupo de 6</td><td class="cur">$23.375</td><td class="">$21.490</td><td class="">$22.270</td></tr><tr class="txt"><td>Clima esperado</td><td class="cur">~35 °C, tifones</td><td class="">~30 °C, pico de tifones</td><td class="">~22 °C, el más estable</td></tr></tbody></table></div>
+    <div class="fine"><p><b>Por qué septiembre y octubre tienen vuelo proyectado:</b> Google Flights todavía no vende vuelos con regreso después de mediados de septiembre de 2027 (respondió "la fecha es demasiado lejana"). Las tarifas de septiembre deberían aparecer a fines de octubre de 2026 y las de octubre a fines de noviembre. Mientras tanto se usa agosto real con el descuento habitual de cada mes (septiembre −10% a −20%, octubre −5% a −15%), tomando el punto medio.</p><p><b>Hospedaje:</b> los precios de septiembre y octubre son reales, consultados en Airbnb para esas fechas. Cuando un anuncio de agosto no aparecía, se proyectó con la variación de la mediana de la zona.</p></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Presupuesto por persona</h2><p id="sum-sub">Agosto · hospedaje medio · traslados con valijas en tren · sin opcionales.</p></div>
+    <div class="box"><table class="sum" id="sum"><thead><tr><th>Rubro</th><th>Por persona</th><th>Grupo de 6</th><th>% del total</th></tr></thead><tbody><tr><td>Vuelo y visas</td><td>$2.469</td><td>$14.814</td><td>63%</td></tr><tr><td>Hospedaje e impuesto local</td><td>$394</td><td>$2.363</td><td>10%</td></tr><tr><td>Entradas y actividades</td><td>$297</td><td>$1.781</td><td>8%</td></tr><tr><td>Comidas</td><td>$294</td><td>$1.761</td><td>8%</td></tr><tr><td>Trenes y traslados</td><td>$201</td><td>$1.208</td><td>5%</td></tr><tr><td>Movilidad urbana</td><td>$41</td><td>$244</td><td>1%</td></tr><tr><td>Seguro, valija, eSIM y comisiones</td><td>$201</td><td>$1.205</td><td>5%</td></tr><tr class="tot"><td>Total</td><td>$3.896</td><td>$23.375</td><td>100%</td></tr><tr><td>Opcionales (no incluidos)</td><td>$174</td><td>$1.045</td><td></td></tr><tr><td>Fondo sugerido para imprevistos (10%)</td><td>$390</td><td>$2.337</td><td></td></tr></tbody></table></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Cuánto ahorrar por mes</h2><p>Plan por persona desde noviembre de 2026, siguiendo el orden en que hay que pagar: primero visas y vuelos (en febrero, con las visas aprobadas), después entradas, Airbnb y Shinkansen, y al final el efectivo del viaje. Incluye 10% de imprevistos.</p></div>
+    <div class="ctl" style="max-width:320px"><span>Ya ahorrado por persona (USD)</span><input type="number" id="saved" min="0" step="50" value="0" inputmode="decimal" class="num"><small id="saved-err" class="err" aria-live="polite"></small></div>
+    <div id="savings" style="display:grid;gap:14px"><div class="tiles"><div class="tile"><span class="eyebrow">Noviembre 2026 a febrero 2027</span><b>$637</b><small>por persona al mes · grupo $3.824</small><small>Alcanza para visas y vuelos en febrero</small></div><div class="tile"><span class="eyebrow">Marzo 2027 a julio 2027</span><b>$347</b><small>por persona al mes · grupo $2.084</small><small>5 meses para el resto</small></div><div class="tile"><span class="eyebrow">Total a juntar</span><b>$4.285</b><small>por persona, con 10% de imprevistos · grupo $25.712</small><small>Parejo en 9 meses: $476 al mes</small></div></div><div class="box"><table class="sum compact"><thead><tr><th>Mes</th><th>Qué se paga</th><th>Por persona</th><th>Acumulado</th></tr></thead><tbody><tr><td>noviembre 2026</td><td>Visa canadiense</td><td>$135</td><td>$135</td></tr><tr><td>febrero 2027</td><td>Vuelos (Avianca + Air Canada) y valija</td><td>$2.414</td><td>$2.549</td></tr><tr><td>marzo 2027</td><td>Visa japonesa</td><td>$20</td><td>$2.569</td></tr><tr><td>junio 2027</td><td>Entradas con fecha (parques, Studio Tour, clase de sushi, Shibuya Sky)</td><td>$263</td><td>$2.832</td></tr><tr><td>julio 2027</td><td>Airbnb, Shinkansen, seguro y eSIM</td><td>$638</td><td>$3.470</td></tr><tr><td>julio 2027</td><td>Efectivo para Japón, comisiones e imprevistos (10%)</td><td>$815</td><td>$4.285</td></tr></tbody></table></div><div class="box"><table class="sum"><thead><tr><th>Si viajan en</th><th class="cur">Agosto</th><th class="">Septiembre</th><th class="">Octubre</th></tr></thead><tbody><tr><td>Ahorro mensual por persona (hasta febrero → después)</td><td class="cur">$637 → $347<small>9 meses · total $4.285</small></td><td class="">$551 → $290<small>10 meses · total $3.940</small></td><td class="">$580 → $252<small>11 meses · total $4.083</small></td></tr></tbody></table></div></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Qué completa la proyección</h2><p>Lo que ya se agregó al total y lo que todavía conviene confirmar.</p></div>
+    <div class="grid2">
+      <div class="fine"><p><b>Agregado al total</b> (estimado):</p><ul>
+        <li>Seguro de viaje para 12 días: ~$60</li>
+        <li>Valija despachada en Avianca ida y vuelta, si la tarifa básica no la incluye: ~$100 (Air Canada a Japón suele incluir valija)</li>
+        <li>eSIM o pocket wifi: ~$20</li>
+        <li>Comisión de tarjeta y cambio: ~2,5% de lo que se gasta en Japón</li>
+        <li>Impuesto local de alojamiento: Kioto ¥400 y Osaka ¥200 por persona y noche (Tokio no cobra a estos precios)</li>
+        <li>Fondo de imprevistos del 10% en el plan de ahorro</li>
+      </ul></div>
+      <div class="fine"><p><b>Pendiente de confirmar</b>:</p><ul>
+        <li>Vuelos de septiembre y octubre: salen a la venta a fines de octubre y de noviembre de 2026</li>
+        <li>Precio de las entradas a Disney y USJ para la fecha exacta (se usó el máximo)</li>
+        <li>Tipo de cambio: si el yen se mueve 10%, el gasto en Japón cambia ~$90 por persona</li>
+        <li>Que Avianca y Air Canada mantengan los horarios de 2027 (conexión de ~6 h en Toronto)</li>
+        <li>Visa canadiense aprobada para los 6: sin eso, esta ruta no sirve</li>
+        <li>No incluye compras ni recuerdos</li>
+      </ul></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Qué comer en cada ciudad</h2><p>Precios orientativos por plato. La comida diaria del presupuesto asume unos ¥5.000 por persona; el día en que aparece cada plato está indicado.</p></div>
+    <div class="foodgrid">
+      <article class="dish" style="--c:var(--tokyo)"><img src="img/food/sushi.jpg" alt="Nigiri sushi" loading="lazy"><div><b>Sushi de mostrador</b><span>Tsukiji · día 2</span><em>¥2.500–4.000</em></div></article>
+      <article class="dish" style="--c:var(--tokyo)"><img src="img/food/monja.jpg" alt="Ingredientes de monjayaki antes de ir a la plancha" loading="lazy"><div><b>Monjayaki</b><span>Tsukishima · día 2</span><em>¥1.500–2.500</em></div></article>
+      <article class="dish" style="--c:var(--tokyo)"><img src="img/food/yakitori.jpg" alt="Faroles de Omoide Yokocho" loading="lazy"><div><b>Yakitori</b><span>Omoide Yokocho · día 8</span><em>¥2.500–3.500</em></div></article>
+      <article class="dish" style="--c:var(--tokyo)"><img src="img/food/ramen.jpg" alt="Bowl de ramen" loading="lazy"><div><b>Ramen</b><span>Shinjuku o Shibuya · cualquier noche</span><em>¥1.000–1.500</em></div></article>
+      <article class="dish" style="--c:var(--tokyo)"><img src="img/food/onigiri.jpg" alt="Onigiri de konbini" loading="lazy"><div><b>Onigiri de konbini</b><span>Desayunos de todos los días</span><em>¥200–400</em></div></article>
+      <article class="dish" style="--c:var(--kyoto)"><img src="img/food/nishiki.jpg" alt="Puesto del mercado Nishiki" loading="lazy"><div><b>Mercado Nishiki</b><span>Kioto · día 4</span><em>¥300–800 por bocado</em></div></article>
+      <article class="dish" style="--c:var(--kyoto)"><img src="img/food/yudofu.jpg" alt="Menú de yudofu" loading="lazy"><div><b>Yudofu</b><span>Arashiyama · día 5</span><em>¥2.500–4.000</em></div></article>
+      <article class="dish" style="--c:var(--kyoto)"><img src="img/food/soba.jpg" alt="Zaru soba" loading="lazy"><div><b>Soba</b><span>Arashiyama · día 5</span><em>¥1.000–1.500</em></div></article>
+      <article class="dish" style="--c:var(--kyoto)"><img src="img/food/matcha.jpg" alt="Matcha y wagashi" loading="lazy"><div><b>Matcha y wagashi</b><span>Gion · día 4</span><em>¥1.000–1.800</em></div></article>
+      <article class="dish" style="--c:var(--nara)"><img src="img/food/kakinoha.jpg" alt="Kakinoha-zushi" loading="lazy"><div><b>Kakinoha-zushi</b><span>Nara · día 6</span><em>¥1.000–1.500</em></div></article>
+      <article class="dish" style="--c:var(--osaka)"><img src="img/food/takoyaki.jpg" alt="Takoyaki" loading="lazy"><div><b>Takoyaki</b><span>Dotonbori · día 6</span><em>¥600–900</em></div></article>
+      <article class="dish" style="--c:var(--osaka)"><img src="img/food/okonomiyaki.jpg" alt="Okonomiyaki" loading="lazy"><div><b>Okonomiyaki</b><span>Dotonbori · día 6</span><em>¥1.000–1.600</em></div></article>
+      <article class="dish" style="--c:var(--osaka)"><img src="img/food/kushikatsu.jpg" alt="Kushikatsu" loading="lazy"><div><b>Kushikatsu</b><span>Shinsekai · día 7</span><em>¥1.500–2.500</em></div></article>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Qué reservar y cuándo</h2><p>Las fechas de apertura de venta son referencias habituales; confirmen en cada sitio oficial.</p></div>
+    <ol class="book">
+      <li><span class="when">Ya</span><span>Visa canadiense de visitante para los 6. No comprar vuelos sin visas aprobadas.</span></li>
+      <li><span class="when">Con vuelos comprados</span><span>Visa japonesa en la embajada en Quito (pide itinerario de vuelos).</span></li>
+      <li><span class="when">Cuanto antes</span><span>Los cuatro Airbnb. Hoy casi todos permiten reservar sin pagar y cancelar gratis. Elegir anuncios con número de licencia.</span></li>
+      <li><span class="when">~2 meses antes</span><span>Entradas con fecha de Tokyo DisneySea y Universal Studios Japan, más el Express Pass si lo quieren para el sábado.</span></li>
+      <li><span class="when">~1–2 meses antes</span><span>Harry Potter Studio Tour Tokyo (horario fijo) y la clase de sushi.</span></li>
+      <li><span class="when">21 días antes</span><span>Shinkansen con tarifa Hayatoku 21 en smartEX: Tokio–Kioto ¥12.430 y Shin-Osaka–Tokio ¥12.980.</span></li>
+      <li><span class="when">~4 semanas antes</span><span>Shibuya Sky al atardecer del lunes.</span></li>
+      <li><span class="when">Antes de viajar</span><span>Permiso internacional de conducir (Convención de 1949) solo si van a hacer el kart. eSIM o pocket wifi.</span></li>
+    </ol>
+  </section>
+
+  <section class="fine" aria-label="Supuestos y créditos">
+    <p><b>Supuestos.</b> Precios por persona en USD con ¥155 por dólar. Vuelo de agosto validado en Google Flights el 20 de octubre de 2026: Avianca Quito–Toronto ida y vuelta $859 y Air Canada Toronto–Haneda directo ida y vuelta $1.455, en dos boletos separados. Visas: Canadá ~$135 y Japón ~$20. Entradas a parques con el precio máximo de su rango; pueden bajar en días de menor demanda. Todo lo marcado como estimado es una referencia a confirmar.</p>
+    <p><b>No incluye</b> seguro de viaje, maletas extra, compras ni fondo para imprevistos (sugerido: 10% del total).</p>
+    <p><b>Fotos de lugares y comida</b> de Wikimedia Commons:</p>
+    <ul id="credits"><li>Haneda, terminal 3: <a href="https://commons.wikimedia.org/wiki/File:Views_of_Haneda_airport_near_Terminal_3.jpg" target="_blank" rel="noopener">Syced</a>, CC0</li><li>Cruce de Shibuya: <a href="https://commons.wikimedia.org/wiki/File:Shibuya_crossing_at_night,_Tokyo,_Japan.jpg" target="_blank" rel="noopener">Joli Rumi</a>, CC BY-SA 4.0</li><li>Kaminarimon, Sensō-ji: <a href="https://commons.wikimedia.org/wiki/File:Kaminarimon,_Sensoji_(2521999969).jpg" target="_blank" rel="noopener">KimonBerlin</a>, CC BY-SA 2.0</li><li>Tokyo Tower de noche: <a href="https://commons.wikimedia.org/wiki/File:Minato_City,_Tokyo,_Japan_(Night).jpg" target="_blank" rel="noopener">David Kernan</a>, CC BY 4.0</li><li>Tokyo DisneySea: <a href="https://commons.wikimedia.org/wiki/File:Mediterranean_Harbor_(DisneySea)_at_Night_-_Dec_2019.jpg" target="_blank" rel="noopener">Cabeza2000</a>, CC BY-SA 4.0</li><li>Shinkansen y monte Fuji: <a href="https://commons.wikimedia.org/wiki/File:Mount_Fuji_and_Shinkansen_N700.jpg" target="_blank" rel="noopener">Alpsdake</a>, CC BY-SA 4.0</li><li>Kiyomizu-dera (foto de otoño): <a href="https://commons.wikimedia.org/wiki/File:Kiyomizu-dera,_Kyoto,_November_2016_-01.jpg" target="_blank" rel="noopener">Martin Falbisoner</a>, CC BY-SA 4.0</li><li>Hanamikoji, Gion: <a href="https://commons.wikimedia.org/wiki/File:JP_%E6%97%A5%E6%9C%AC_Japan_%E4%BA%AC%E9%83%BD_Kyoto_Higashiyama-ku_Gion_%E8%8A%B1%E8%A6%8B%E5%B0%8F%E8%B7%AF%E9%80%9A_Hanamikoji_Dori_10am_morning_June_2026_N13P_16.jpg" target="_blank" rel="noopener">HAGAT hOMSZE</a>, CC0</li><li>Fushimi Inari: <a href="https://commons.wikimedia.org/wiki/File:Double_torii_path_at_Fushimi_Inari_Taisha_Shrine,_Kyoto,_Japan.jpg" target="_blank" rel="noopener">Basile Morin</a>, CC BY-SA 4.0</li><li>Kinkaku-ji: <a href="https://commons.wikimedia.org/wiki/File:Water_reflection_of_Kinkaku-ji_Temple_a_sunny_day,_Kyoto,_Japan.jpg" target="_blank" rel="noopener">Basile Morin</a>, CC BY-SA 4.0</li><li>Bosque de bambú de Arashiyama: <a href="https://commons.wikimedia.org/wiki/File:Bamboo_Forest,_Arashiyama,_Kyoto,_Japan.jpg" target="_blank" rel="noopener">Basile Morin</a>, CC BY-SA 4.0</li><li>Ciervos y shika senbei en Nara: <a href="https://commons.wikimedia.org/wiki/File:2008-10-11_deer_near_a_stand_selling_deer_cookies_in_Nara.jpg" target="_blank" rel="noopener">merec0</a>, CC BY 2.0</li><li>Tōdai-ji: <a href="https://commons.wikimedia.org/wiki/File:T%C5%8Ddai-ji_Daibutsuden,_June_2019.jpg" target="_blank" rel="noopener">Cun Cun</a>, CC BY-SA 4.0</li><li>Dotonbori: <a href="https://commons.wikimedia.org/wiki/File:Glico_Man_sign,_Dotonbori.JPG" target="_blank" rel="noopener">Schellack</a>, CC BY-SA 3.0</li><li>Universal Studios Japan: <a href="https://commons.wikimedia.org/wiki/File:Universal_Studios_in_Japan.jpg" target="_blank" rel="noopener">Leeyj0401</a>, CC BY-SA 4.0</li><li>Shinsekai y Tsūtenkaku: <a href="https://commons.wikimedia.org/wiki/File:Shinsekai_and_Tsutenkaku_Tower.jpg" target="_blank" rel="noopener">Sakai Yayoi</a>, CC0</li><li>Harry Potter Studio Tour Tokyo: <a href="https://commons.wikimedia.org/wiki/File:Warner_Bros._Studio_Tour_Tokyo_-_The_Making_of_Harry_Potter.jpg" target="_blank" rel="noopener">Jeremy Thompson</a>, CC BY 2.0</li><li>Santuario Meiji: <a href="https://commons.wikimedia.org/wiki/File:Meiji-jingu_Torii_1.jpg" target="_blank" rel="noopener">Zairon</a>, CC BY-SA 4.0</li><li>Shibuya Sky: <a href="https://commons.wikimedia.org/wiki/File:Shibuya_Sky_Observation_Deck_(53415730632).jpg" target="_blank" rel="noopener">Stephen Kelly from San Francisco, CA, US</a>, CC BY 2.0</li><li>Calle Takeshita: <a href="https://commons.wikimedia.org/wiki/File:Japan_Tokyo_Takeshita_street_at_summer_-_%E6%9D%B1%E4%BA%AC%E7%AB%B9%E4%B8%8B.jpg" target="_blank" rel="noopener">japanvlogjp</a>, CC BY-SA 4.0</li><li>Omoide Yokocho: <a href="https://commons.wikimedia.org/wiki/File:Yakitori_shop_lanterns_in_Omoide-Yokoch%C5%8D,_Shinjuku,_Tokyo,_Japan_2011_2_(7024865381).jpg" target="_blank" rel="noopener">Yiannis Theologos Michellis</a>, CC0</li><li>Monjayaki: <a href="https://commons.wikimedia.org/wiki/File:Monjayaki_001.JPG" target="_blank" rel="noopener">Ocdp</a>, CC0</li><li>Onigiri: <a href="https://commons.wikimedia.org/wiki/File:Onigiri_Bought_at_a_Convenience_Store.jpg" target="_blank" rel="noopener">user:Amagase</a>, CC BY-SA 2.5</li><li>Mercado Nishiki: <a href="https://commons.wikimedia.org/wiki/File:Tsukemono_shop_by_collinox_in_Nishiki_Ichiba,_Kyoto.jpg" target="_blank" rel="noopener">collinox</a>, CC BY 2.0</li><li>Yudofu: <a href="https://commons.wikimedia.org/wiki/File:Yudofu_meal_set_in_Kyoto.jpg" target="_blank" rel="noopener">ZhengZhou</a>, CC BY-SA 4.0</li><li>Matcha y wagashi: <a href="https://commons.wikimedia.org/wiki/File:Matcha_and_wagashi_by_MShades_at_Daigoji,_Kyoto.jpg" target="_blank" rel="noopener">MShades from Buddhist temple Daigo-ji in</a>, CC BY 2.0</li><li>Soba: <a href="https://commons.wikimedia.org/wiki/File:Zaru_soba_by_spinachdip.jpg" target="_blank" rel="noopener">spinachdip from Minamikiso, Nagano</a>, CC BY-SA 2.0</li><li>Takoyaki: <a href="https://commons.wikimedia.org/wiki/File:Honkeohtako%27s_takoyaki,_Osaka;_December_2013_(02).jpg" target="_blank" rel="noopener">City Foodsters</a>, CC BY 2.0</li><li>Okonomiyaki: <a href="https://commons.wikimedia.org/wiki/File:Okonomiyaki_-a_Japanese_savory_pancake_in_Osaka,_Japan.jpg" target="_blank" rel="noopener">Joli Rumi</a>, CC BY-SA 4.0</li><li>Kushikatsu: <a href="https://commons.wikimedia.org/wiki/File:Kushikatsu_-_Shinsekai_(28289215848).jpg" target="_blank" rel="noopener">Ajay Suresh from New York, NY, USA</a>, CC BY 2.0</li><li>Kakinoha-zushi: <a href="https://commons.wikimedia.org/wiki/File:Kakinoha_(persimmon_leaf)_sushi_in_Nara.jpg" target="_blank" rel="noopener">ZhengZhou</a>, CC BY-SA 4.0</li><li>Sushi: <a href="https://commons.wikimedia.org/wiki/File:Shichifuku_Nigiri_Sushi_at_Tsukiji_Tamasushi,_Wing_Takanawa_(20230802203124).jpg" target="_blank" rel="noopener">N509FZ</a>, CC BY-SA 4.0</li><li>Ramen: <a href="https://commons.wikimedia.org/wiki/File:Niboshi_Ramen_@_Ramen_Nagi_Niboshio_@_Nishi-Shinjuku_(10418780835).jpg" target="_blank" rel="noopener">Guilhem Vellut from Annecy, France</a>, CC BY 2.0</li></ul>
+    <p><b>Fotos de alojamientos</b> de los anuncios en Airbnb, publicadas por cada anfitrión; cada tarjeta enlaza al anuncio original. <b>Mapas</b> © colaboradores de OpenStreetMap (openstreetmap.org/copyright).</p>
+  </section>
+</div>
+
+<script>
+(function(){
+  var DATA = {"picks":{"t1":{"nights":3,"area":"Asakusa","list":[{"id":"1578856303694345629","title":"Casa en Sumida","sub":"A 5 min de Higashi-Mukojima, 10 min a Asakusa y Skytree","beds":"2 hab · 5 camas · 2 baños","rating":"5.0 (24)","img":"img/airbnb/t1_0.jpg","m":{"ago":{"total":436,"pp_night":24.22,"src":"real"},"sep":{"total":442,"pp_night":24.56,"src":"real"},"oct":{"total":613,"pp_night":34.06,"src":"real"}}},{"id":"1633847850021457638","title":"Casa en Asakusa","sub":"Edificio entero nuevo de 100 m², a pasos del Sensō-ji","beds":"3 hab · 4 camas · 2 baños","rating":"4.93 (28)","img":"img/airbnb/t1_1.jpg","m":{"ago":{"total":583,"pp_night":32.39,"src":"real"},"sep":{"total":533,"pp_night":29.61,"src":"real"},"oct":{"total":595,"pp_night":33.06,"src":"proy"}}},{"id":"17013981","title":"Casa en Asakusa (Yuyutei)","sub":"Casa japonesa tradicional en Asakusa","beds":"3 hab · 7 camas · 3 baños","rating":"4.91 (345)","img":"img/airbnb/t1_2.jpg","m":{"ago":{"total":1333,"pp_night":74.06,"src":"real"},"sep":{"total":1315,"pp_night":73.06,"src":"real"},"oct":{"total":1349,"pp_night":74.94,"src":"real"}}}]},"ky":{"nights":2,"area":"Estación de Kioto","list":[{"id":"18463958","title":"Casa tradicional en Kioto","sub":"Casa entera cerca de la estación de Kioto","beds":"5 hab · 8 camas · 3 baños","rating":"4.93 (453)","img":"img/airbnb/ky_0.jpg","m":{"ago":{"total":455,"pp_night":37.92,"src":"real"},"sep":{"total":455,"pp_night":37.92,"src":"real"},"oct":{"total":632,"pp_night":52.67,"src":"real"}}},{"id":"18935194","title":"Casa en Higashiyama","sub":"Machiya de 100 años con jardín, bicis incluidas","beds":"3 hab · 6 camas · 2 baños","rating":"4.96 (560)","img":"img/airbnb/ky_1.jpg","m":{"ago":{"total":632,"pp_night":52.67,"src":"real"},"sep":{"total":632,"pp_night":52.67,"src":"real"},"oct":{"total":632,"pp_night":52.67,"src":"real"}}},{"id":"1644056329905227628","title":"Casa en Kioto (TOKI Gojo)","sub":"4 hab., bañera de cerámica Shigaraki, a 2 min de la estación","beds":"4 hab · 5 camas dobles · 2 baños","rating":"4.97 (29)","img":"img/airbnb/ky_2.jpg","m":{"ago":{"total":773,"pp_night":64.42,"src":"real"},"sep":{"total":773,"pp_night":64.42,"src":"real"},"oct":{"total":773,"pp_night":64.42,"src":"real"}}}]},"os":{"nights":2,"area":"Namba","list":[{"id":"1412233947823914516","title":"Casa en Osaka","sub":"A 10 min a pie de Dotonbori, 5 baños","beds":"3 hab · 7 camas · 5 baños","rating":"4.97 (79)","img":"img/airbnb/os_0.jpg","m":{"ago":{"total":235,"pp_night":19.58,"src":"real"},"sep":{"total":235,"pp_night":19.58,"src":"real"},"oct":{"total":235,"pp_night":19.58,"src":"real"}}},{"id":"1386247738737242370","title":"Departamento en Osaka","sub":"Vista al río Dotonbori, a pie de Namba y Shinsaibashi","beds":"2 hab · 5 camas · 2 baños","rating":"4.97 (68)","img":"img/airbnb/os_1.jpg","m":{"ago":{"total":517,"pp_night":43.08,"src":"real"},"sep":{"total":517,"pp_night":43.08,"src":"real"},"oct":{"total":517,"pp_night":43.08,"src":"real"}}},{"id":"1381518135279946352","title":"Casa en Osaka","sub":"Casa japonesa de 136 m² para 8","beds":"4 hab · 6 camas · 2 baños","rating":"4.98 (104)","img":"img/airbnb/os_2.jpg","m":{"ago":{"total":797,"pp_night":66.42,"src":"real"},"sep":{"total":797,"pp_night":66.42,"src":"real"},"oct":{"total":797,"pp_night":66.42,"src":"real"}}}]},"t2":{"nights":2,"area":"Shibuya","list":[{"id":"1536578645635127835","title":"Casa en Nakano","sub":"A 2 min de la estación, 24 min a Shinjuku","beds":"3 hab · 6 camas · 3 baños","rating":"4.98 (49)","img":"img/airbnb/t2_0.jpg","m":{"ago":{"total":411,"pp_night":34.25,"src":"real"},"sep":{"total":490,"pp_night":40.83,"src":"real"},"oct":{"total":534,"pp_night":44.5,"src":"real"}}},{"id":"1711313238692561027","title":"Casa en Shibuya (Hatagaya)","sub":"Casa de estilo japonés, 2 paradas a Shinjuku","beds":"2 hab · 5 camas · 2 baños","rating":"5.0 (12)","img":"img/airbnb/t2_1.jpg","m":{"ago":{"total":584,"pp_night":48.67,"src":"real"},"sep":{"total":831,"pp_night":69.25,"src":"real"},"oct":{"total":853,"pp_night":71.08,"src":"real"}}},{"id":"1424908843424016733","title":"Casa en Shibuya","sub":"Casa de 5 hab. a 4 min a pie de la estación","beds":"5 hab · 8 camas · 3 baños","rating":"4.97 (79)","img":"img/airbnb/t2_2.jpg","m":{"ago":{"total":781,"pp_night":65.08,"src":"real"},"sep":{"total":925,"pp_night":77.08,"src":"proy"},"oct":{"total":1002,"pp_night":83.5,"src":"real"}}}]}},"stats":{"ago":{"t1":{"n":16,"min":436,"p25":583,"med":775},"ky":{"n":20,"min":383,"p25":521,"med":632},"os":{"n":16,"min":218,"p25":318,"med":455},"t2":{"n":17,"min":332,"p25":584,"med":702}},"sep":{"t1":{"n":16,"min":442,"p25":710,"med":844},"ky":{"n":20,"min":361,"p25":521,"med":632},"os":{"n":17,"min":208,"p25":300,"med":411},"t2":{"n":17,"min":490,"p25":665,"med":831}},"oct":{"t1":{"n":17,"min":403,"p25":613,"med":791},"ky":{"n":20,"min":399,"p25":646,"med":694},"os":{"n":16,"min":208,"p25":276,"med":397},"t2":{"n":16,"min":534,"p25":639,"med":821}}},"maps":{"ruta":{"w":892,"h":334,"pts":[{"id":"haneda","label":"Haneda","x":92.5,"y":26.99,"k":"air"},{"id":"tokio","label":"Tokio","x":90.89,"y":17.59,"k":"tokyo"},{"id":"kioto","label":"Kioto","x":10.44,"y":64.62,"k":"kyoto"},{"id":"nara","label":"Nara","x":12.09,"y":84.33,"k":"nara"},{"id":"osaka","label":"Osaka","x":5.19,"y":85.67,"k":"osaka"}]},"tokio":{"w":961,"h":896,"pts":[{"id":"haneda","label":"Haneda","x":54.54,"y":88.34,"k":"p"},{"id":"sensoji","label":"Sensō-ji y Hoppy Dori (Asakusa)","x":59.67,"y":22.19,"k":"p"},{"id":"akiba","label":"Akihabara","x":52.51,"y":28.75,"k":"p"},{"id":"tsukiji","label":"Clase de sushi (Tsukiji)","x":51.79,"y":41.92,"k":"p"},{"id":"tower","label":"Tokyo Tower","x":44.12,"y":44.68,"k":"p"},{"id":"tsukishima","label":"Monjayaki en Tsukishima","x":55.7,"y":43.04,"k":"p"},{"id":"disney","label":"Tokyo DisneySea","x":86.46,"y":57.44,"k":"p"},{"id":"tokyost","label":"Estación de Tokio (Shinkansen)","x":50.7,"y":35.64,"k":"p"},{"id":"hp","label":"Harry Potter Studio Tour","x":15.08,"y":11.09,"k":"p"},{"id":"omoide","label":"Omoide Yokocho (Shinjuku)","x":30.21,"y":30.95,"k":"p"},{"id":"meiji","label":"Santuario Meiji y Harajuku","x":30.15,"y":37.56,"k":"p"},{"id":"shibuya","label":"Cruce de Shibuya y Shibuya Sky","x":30.51,"y":44.32,"k":"p"},{"id":"bnb","label":"Airbnb económico · Tokio 1","x":66.76,"y":16.9,"k":"a0t1"},{"id":"bnb","label":"Airbnb medio · Tokio 1","x":59.79,"y":19.26,"k":"a1t1"},{"id":"bnb","label":"Airbnb alto · Tokio 1","x":57.48,"y":20.34,"k":"a2t1"},{"id":"bnb","label":"Airbnb económico · Tokio 2","x":15.36,"y":20.33,"k":"a0t2"},{"id":"bnb","label":"Airbnb medio · Tokio 2","x":22.69,"y":35.64,"k":"a1t2"},{"id":"bnb","label":"Airbnb alto · Tokio 2","x":24.3,"y":41.68,"k":"a2t2"}]},"kioto":{"w":874,"h":676,"pts":[{"id":"station","label":"Estación de Kioto","x":69.26,"y":67.65,"k":"p"},{"id":"nishiki","label":"Mercado Nishiki","x":73.33,"y":47.46,"k":"p"},{"id":"kiyomizu","label":"Kiyomizu-dera","x":86.72,"y":58.08,"k":"p"},{"id":"gion","label":"Gion","x":80.19,"y":49.88,"k":"p"},{"id":"fushimi","label":"Fushimi Inari","x":78.52,"y":87.32,"k":"p"},{"id":"arashiyama","label":"Arashiyama","x":10.94,"y":34.83,"k":"p"},{"id":"kinkaku","label":"Kinkaku-ji","x":49.53,"y":11.26,"k":"p"},{"id":"pontocho","label":"Pontocho","x":77.39,"y":46.09,"k":"p"},{"id":"bnb","label":"Airbnb económico · Kioto","x":65.12,"y":66.89,"k":"a0ky"},{"id":"bnb","label":"Airbnb medio · Kioto","x":76.94,"y":69.28,"k":"a1ky"},{"id":"bnb","label":"Airbnb alto · Kioto","x":68.79,"y":57.13,"k":"a2ky"}]},"osaka":{"w":1515,"h":638,"pts":[{"id":"nara","label":"Parque de Nara y Tōdai-ji","x":88.46,"y":50.69,"k":"p"},{"id":"dotonbori","label":"Dotonbori","x":23.38,"y":61.96,"k":"p"},{"id":"usj","label":"Universal Studios Japan","x":10.11,"y":63.8,"k":"p"},{"id":"shinsekai","label":"Shinsekai","x":24.34,"y":70.96,"k":"p"},{"id":"shinosaka","label":"Shin-Osaka (Shinkansen)","x":23.16,"y":26.04,"k":"p"},{"id":"bnb","label":"Airbnb económico · Osaka","x":25.49,"y":65.24,"k":"a0os"},{"id":"bnb","label":"Airbnb medio · Osaka","x":24.81,"y":62.19,"k":"a1os"},{"id":"bnb","label":"Airbnb alto · Osaka","x":22.13,"y":78.78,"k":"a2os"}]}},"credits":{"haneda":{"title":"Views of Haneda airport near Terminal 3.jpg","page":"https://commons.wikimedia.org/wiki/File:Views_of_Haneda_airport_near_Terminal_3.jpg","artist":"Syced","lic":"CC0"},"shibuya":{"title":"Shibuya crossing at night, Tokyo, Japan.jpg","page":"https://commons.wikimedia.org/wiki/File:Shibuya_crossing_at_night,_Tokyo,_Japan.jpg","artist":"Joli Rumi","lic":"CC BY-SA 4.0"},"sensoji":{"title":"Kaminarimon, Sensoji (2521999969).jpg","page":"https://commons.wikimedia.org/wiki/File:Kaminarimon,_Sensoji_(2521999969).jpg","artist":"KimonBerlin","lic":"CC BY-SA 2.0"},"tokyotower":{"title":"Minato City, Tokyo, Japan (Night).jpg","page":"https://commons.wikimedia.org/wiki/File:Minato_City,_Tokyo,_Japan_(Night).jpg","artist":"David Kernan","lic":"CC BY 4.0"},"disneysea":{"title":"Mediterranean Harbor (DisneySea) at Night - Dec 2019.jpg","page":"https://commons.wikimedia.org/wiki/File:Mediterranean_Harbor_(DisneySea)_at_Night_-_Dec_2019.jpg","artist":"Cabeza2000","lic":"CC BY-SA 4.0"},"fuji":{"title":"Mount Fuji and Shinkansen N700.jpg","page":"https://commons.wikimedia.org/wiki/File:Mount_Fuji_and_Shinkansen_N700.jpg","artist":"Alpsdake","lic":"CC BY-SA 4.0"},"kiyomizu":{"title":"Kiyomizu-dera, Kyoto, November 2016 -01.jpg","page":"https://commons.wikimedia.org/wiki/File:Kiyomizu-dera,_Kyoto,_November_2016_-01.jpg","artist":"Martin Falbisoner","lic":"CC BY-SA 4.0"},"gion":{"title":"JP 日本 Japan 京都 Kyoto Higashiyama-ku Gion 花見小路通 Hanamikoji Dori 10am morning June 2026 N13P 16.jpg","page":"https://commons.wikimedia.org/wiki/File:JP_%E6%97%A5%E6%9C%AC_Japan_%E4%BA%AC%E9%83%BD_Kyoto_Higashiyama-ku_Gion_%E8%8A%B1%E8%A6%8B%E5%B0%8F%E8%B7%AF%E9%80%9A_Hanamikoji_Dori_10am_morning_June_2026_N13P_16.jpg","artist":"HAGAT hOMSZE","lic":"CC0"},"fushimi":{"title":"Double torii path at Fushimi Inari Taisha Shrine, Kyoto, Japan.jpg","page":"https://commons.wikimedia.org/wiki/File:Double_torii_path_at_Fushimi_Inari_Taisha_Shrine,_Kyoto,_Japan.jpg","artist":"Basile Morin","lic":"CC BY-SA 4.0"},"kinkakuji":{"title":"Water reflection of Kinkaku-ji Temple a sunny day, Kyoto, Japan.jpg","page":"https://commons.wikimedia.org/wiki/File:Water_reflection_of_Kinkaku-ji_Temple_a_sunny_day,_Kyoto,_Japan.jpg","artist":"Basile Morin","lic":"CC BY-SA 4.0"},"arashiyama":{"title":"Bamboo Forest, Arashiyama, Kyoto, Japan.jpg","page":"https://commons.wikimedia.org/wiki/File:Bamboo_Forest,_Arashiyama,_Kyoto,_Japan.jpg","artist":"Basile Morin","lic":"CC BY-SA 4.0"},"naradeer":{"title":"2008-10-11 deer near a stand selling deer cookies in Nara.jpg","page":"https://commons.wikimedia.org/wiki/File:2008-10-11_deer_near_a_stand_selling_deer_cookies_in_Nara.jpg","artist":"merec0","lic":"CC BY 2.0"},"todaiji":{"title":"Tōdai-ji Daibutsuden, June 2019.jpg","page":"https://commons.wikimedia.org/wiki/File:T%C5%8Ddai-ji_Daibutsuden,_June_2019.jpg","artist":"Cun Cun","lic":"CC BY-SA 4.0"},"dotonbori":{"title":"Glico Man sign, Dotonbori.JPG","page":"https://commons.wikimedia.org/wiki/File:Glico_Man_sign,_Dotonbori.JPG","artist":"Schellack","lic":"CC BY-SA 3.0"},"usj":{"title":"Universal Studios in Japan.jpg","page":"https://commons.wikimedia.org/wiki/File:Universal_Studios_in_Japan.jpg","artist":"Leeyj0401","lic":"CC BY-SA 4.0"},"shinsekai":{"title":"Shinsekai and Tsutenkaku Tower.jpg","page":"https://commons.wikimedia.org/wiki/File:Shinsekai_and_Tsutenkaku_Tower.jpg","artist":"Sakai Yayoi","lic":"CC0"},"studiotour":{"title":"Warner Bros. Studio Tour Tokyo - The Making of Harry Potter.jpg","page":"https://commons.wikimedia.org/wiki/File:Warner_Bros._Studio_Tour_Tokyo_-_The_Making_of_Harry_Potter.jpg","artist":"Jeremy Thompson","lic":"CC BY 2.0"},"meiji":{"title":"Meiji-jingu Torii 1.jpg","page":"https://commons.wikimedia.org/wiki/File:Meiji-jingu_Torii_1.jpg","artist":"Zairon","lic":"CC BY-SA 4.0"},"shibuyasky":{"title":"Shibuya Sky Observation Deck (53415730632).jpg","page":"https://commons.wikimedia.org/wiki/File:Shibuya_Sky_Observation_Deck_(53415730632).jpg","artist":"Stephen Kelly from San Francisco, CA, US","lic":"CC BY 2.0"},"takeshita":{"title":"Japan Tokyo Takeshita street at summer - 東京竹下.jpg","page":"https://commons.wikimedia.org/wiki/File:Japan_Tokyo_Takeshita_street_at_summer_-_%E6%9D%B1%E4%BA%AC%E7%AB%B9%E4%B8%8B.jpg","artist":"japanvlogjp","lic":"CC BY-SA 4.0"}},"foodCredits":{"yakitori":{"title":"Yakitori shop lanterns in Omoide-Yokochō, Shinjuku, Tokyo, Japan 2011 2 (7024865381).jpg","page":"https://commons.wikimedia.org/wiki/File:Yakitori_shop_lanterns_in_Omoide-Yokoch%C5%8D,_Shinjuku,_Tokyo,_Japan_2011_2_(7024865381).jpg","artist":"Yiannis Theologos Michellis","lic":"CC0"},"monja":{"title":"Monjayaki 001.JPG","page":"https://commons.wikimedia.org/wiki/File:Monjayaki_001.JPG","artist":"Ocdp","lic":"CC0"},"onigiri":{"title":"Onigiri Bought at a Convenience Store.jpg","page":"https://commons.wikimedia.org/wiki/File:Onigiri_Bought_at_a_Convenience_Store.jpg","artist":"user:Amagase","lic":"CC BY-SA 2.5"},"nishiki":{"title":"Tsukemono shop by collinox in Nishiki Ichiba, Kyoto.jpg","page":"https://commons.wikimedia.org/wiki/File:Tsukemono_shop_by_collinox_in_Nishiki_Ichiba,_Kyoto.jpg","artist":"collinox","lic":"CC BY 2.0"},"yudofu":{"title":"Yudofu meal set in Kyoto.jpg","page":"https://commons.wikimedia.org/wiki/File:Yudofu_meal_set_in_Kyoto.jpg","artist":"ZhengZhou","lic":"CC BY-SA 4.0"},"matcha":{"title":"Matcha and wagashi by MShades at Daigoji, Kyoto.jpg","page":"https://commons.wikimedia.org/wiki/File:Matcha_and_wagashi_by_MShades_at_Daigoji,_Kyoto.jpg","artist":"MShades from Buddhist temple Daigo-ji in","lic":"CC BY 2.0"},"soba":{"title":"Zaru soba by spinachdip.jpg","page":"https://commons.wikimedia.org/wiki/File:Zaru_soba_by_spinachdip.jpg","artist":"spinachdip from Minamikiso, Nagano","lic":"CC BY-SA 2.0"},"takoyaki":{"title":"Honkeohtako's takoyaki, Osaka; December 2013 (02).jpg","page":"https://commons.wikimedia.org/wiki/File:Honkeohtako%27s_takoyaki,_Osaka;_December_2013_(02).jpg","artist":"City Foodsters","lic":"CC BY 2.0"},"okonomiyaki":{"title":"Okonomiyaki -a Japanese savory pancake in Osaka, Japan.jpg","page":"https://commons.wikimedia.org/wiki/File:Okonomiyaki_-a_Japanese_savory_pancake_in_Osaka,_Japan.jpg","artist":"Joli Rumi","lic":"CC BY-SA 4.0"},"kushikatsu":{"title":"Kushikatsu - Shinsekai (28289215848).jpg","page":"https://commons.wikimedia.org/wiki/File:Kushikatsu_-_Shinsekai_(28289215848).jpg","artist":"Ajay Suresh from New York, NY, USA","lic":"CC BY 2.0"},"kakinoha":{"title":"Kakinoha (persimmon leaf) sushi in Nara.jpg","page":"https://commons.wikimedia.org/wiki/File:Kakinoha_(persimmon_leaf)_sushi_in_Nara.jpg","artist":"ZhengZhou","lic":"CC BY-SA 4.0"},"sushi":{"title":"Shichifuku Nigiri Sushi at Tsukiji Tamasushi, Wing Takanawa (20230802203124).jpg","page":"https://commons.wikimedia.org/wiki/File:Shichifuku_Nigiri_Sushi_at_Tsukiji_Tamasushi,_Wing_Takanawa_(20230802203124).jpg","artist":"N509FZ","lic":"CC BY-SA 4.0"},"ramen":{"title":"Niboshi Ramen @ Ramen Nagi Niboshio @ Nishi-Shinjuku (10418780835).jpg","page":"https://commons.wikimedia.org/wiki/File:Niboshi_Ramen_@_Ramen_Nagi_Niboshio_@_Nishi-Shinjuku_(10418780835).jpg","artist":"Guilhem Vellut from Annecy, France","lic":"CC BY 2.0"}}};
+  var RATE = 155;
+  var MONTHS = {
+    ago:{name:"Agosto", start:[2027,7,13], flight:{v:2314, lo:2314, hi:2314, src:"v"},
+      note:"<b>Agosto:</b> precios de vuelo y hospedaje validados. El 15 todavía es Obon (trenes y atracciones llenos), hace ~35 °C y es temporada de tifones. El 16, Kioto enciende el Gozan no Okuribi; esta ruta está en Tokio ese día."},
+    sep:{name:"Septiembre", start:[2027,8,10], flight:{v:1967, lo:1851, hi:2083, src:"p"},
+      note:"<b>Septiembre:</b> baja el calor (~30 °C) pero es el pico de tifones. El lunes 20 es feriado (Día del Respeto a los Mayores) y el hospedaje en Tokio sube ese fin de semana. Disney y USJ arrancan su temporada de Halloween. El vuelo es una proyección."},
+    oct:{name:"Octubre", start:[2027,9,8], flight:{v:2083, lo:1967, hi:2198, src:"p"},
+      note:"<b>Octubre:</b> el mejor clima de los tres (~22 °C) y menos tifones. El lunes 11 es feriado (Día del Deporte), con Asakusa y Akihabara más llenos. Las terrazas kawayuka de Kioto ya cerraron (funcionan hasta el 30 de septiembre). Halloween en Disney y USJ. El vuelo es una proyección."}
+  };
+  var VISAS = 155;
+  var STAYKEYS = {t1:"Tokio · estadía 1", ky:"Kioto", os:"Osaka", t2:"Tokio · estadía 2"};
+  var STAYCOL = {t1:"--tokyo", ky:"--kyoto", os:"--osaka", t2:"--tokyo"};
+  var STAYNIGHTS = {t1:[1,4], ky:[4,6], os:[6,8], t2:[8,10]};
+  var LV = ["Económico","Medio","Alto"], LVK = ["E","M","A"];
+  var PHOTOS = {
+    haneda:"Haneda, terminal 3", shibuya:"Cruce de Shibuya", sensoji:"Kaminarimon, Sensō-ji", tokyotower:"Tokyo Tower de noche",
+    disneysea:"Tokyo DisneySea", fuji:"Shinkansen y monte Fuji", kiyomizu:"Kiyomizu-dera (foto de otoño)", gion:"Hanamikoji, Gion",
+    fushimi:"Fushimi Inari", kinkakuji:"Kinkaku-ji", arashiyama:"Bosque de bambú de Arashiyama", naradeer:"Ciervos y shika senbei en Nara",
+    todaiji:"Tōdai-ji", dotonbori:"Dotonbori", usj:"Universal Studios Japan", shinsekai:"Shinsekai y Tsūtenkaku",
+    studiotour:"Harry Potter Studio Tour Tokyo", meiji:"Santuario Meiji", shibuyasky:"Shibuya Sky", takeshita:"Calle Takeshita"
+  };
+  var DAYS = [
+    {n:"0", title:"De Quito a Tokio", base:"En tránsito", c:"--air", stamp:"plane", kanji:"出発", photos:[], stay:null, items:[
+      {h:"Vie 14:15", t:"Quito → Bogotá → Toronto", d:"Avianca, llega a Toronto el sábado a las 07:20", k:"vuelo"},
+      {h:"Sáb 13:20", t:"Toronto → Tokio Haneda", d:"Air Canada directo, 13h20. Llega el domingo a las 15:40", k:"vuelo"},
+      {h:"Total", t:"Vuelo ida y vuelta + visas", d:"Avianca $859 + Air Canada $1.455 en dos boletos · visa Canadá ~$135 · visa Japón ~$20", flight:1, k:"vuelo"}
+    ]},
+    {n:"1", title:"Llegada y primera noche en Asakusa", base:"Base: Tokio (Asakusa)", c:"--tokyo", stamp:"plane", kanji:"羽田", photos:["haneda"], stay:"t1", items:[
+      {h:"15:40", t:"Aterrizaje en Haneda", d:"Migración, comprar tarjeta Welcome Suica y activar eSIM"},
+      {h:"16:45", t:"Haneda → Asakusa con valijas", d:"Keikyu + Toei Asakusa directo, ~45 min, sin transbordo", yen:600, taxi:3000, k:"transporte", leg:"Haneda → Asakusa"},
+      {h:"18:30", t:"Check-in en el Airbnb", d:""},
+      {h:"19:30", t:"Cena en Hoppy Dori", d:"Calle de izakayas al lado del Sensō-ji", yen:3000, k:"comida"},
+      {h:"21:00", t:"Skytree iluminado desde el río Sumida", d:"Paseo corto y gratis para estirar las piernas"}
+    ]},
+    {n:"2", title:"Tokio tradicional y clase de sushi", base:"Base: Tokio (Asakusa)", c:"--tokyo", stamp:"tower", kanji:"東京", photos:["sensoji","tokyotower"], stay:"t1", items:[
+      {h:"08:00", t:"Desayuno de konbini", d:"Onigiri y café", yen:600, k:"comida"},
+      {h:"08:30", t:"Templo Sensō-ji temprano", d:"Antes de las multitudes. Entrada libre"},
+      {h:"10:30", t:"Akihabara", d:"Electrónica, anime y arcades. 10 min en metro"},
+      {h:"12:30", t:"Clase de sushi en Tsukiji", d:"~2 h, incluye almorzar lo que preparan", yen:10000, k:"entradas", pre:1},
+      {h:"15:00", t:"Mercado exterior de Tsukiji", d:"Snacks y cuchillos japoneses"},
+      {h:"16:30", t:"Tokyo Tower al atardecer", d:"Mirador principal (150 m)", yen:1200, k:"entradas"},
+      {h:"19:00", t:"Monjayaki en Tsukishima", d:"Plato típico de Tokio a la plancha, a 10 min de la torre", yen:2400, k:"comida"},
+      {h:"Día", t:"Metro y buses", d:"Con Suica", yen:1200, k:"movilidad"}
+    ]},
+    {n:"3", title:"Tokyo DisneySea", base:"Base: Tokio (Asakusa)", c:"--tokyo", stamp:"fireworks", kanji:"舞浜", photos:["disneysea"], stay:"t1", note:"<b>Martes:</b> el mejor día de la semana para el parque. Las entradas son por fecha y el precio varía entre ¥7.900 y ¥10.900; se asume el máximo.", items:[
+      {h:"07:15", t:"Metro + JR a Maihama", d:"~45 min desde Asakusa, ida y vuelta", yen:800, k:"transporte"},
+      {h:"08:00", t:"Apertura de Tokyo DisneySea", d:"Llegar 30–45 min antes de abrir"},
+      {h:"Día", t:"Entrada de 1 día", d:"Precio variable según fecha", yen:10900, k:"entradas", pre:1},
+      {h:"Día", t:"Comidas dentro del parque", d:"Precios de parque", yen:6000, k:"comida"},
+      {h:"20:30", t:"Show nocturno y regreso", d:""}
+    ]},
+    {n:"4", title:"Shinkansen a Kioto", base:"Base: Kioto", c:"--kyoto", stamp:"shinkansen", kanji:"京都", photos:["fuji","kiyomizu","gion"], stay:"ky", note:"<b>Asiento E:</b> en el Shinkansen hacia Kioto, el monte Fuji se ve por la ventanilla derecha (asiento E) unos 40 minutos después de salir, si el día está despejado.", items:[
+      {h:"07:45", t:"Check-out y desayuno", d:"", yen:600, k:"comida"},
+      {h:"08:20", t:"Asakusa → estación de Tokio con valijas", d:"Metro Ginza + JR, ~20 min", yen:210, taxi:900, k:"transporte", leg:"Asakusa → estación de Tokio"},
+      {h:"09:00", t:"Nozomi Tokio → Kioto", d:"2h15. Tarifa Hayatoku 21 (sin ella: ~¥14.170)", yen:12430, k:"transporte", v:1, shk:1},
+      {h:"11:30", t:"Estación de Kioto → Airbnb con valijas", d:"Bus o a pie, incluido en los buses del día", yen:0, taxi:433, k:"transporte", leg:"Estación de Kioto → Airbnb"},
+      {h:"12:30", t:"Almuerzo en el mercado Nishiki", d:"Comida al paso por el mercado", yen:2000, k:"comida"},
+      {h:"14:30", t:"Kiyomizu-dera, Sannenzaka y Ninenzaka", d:"Bajando a pie se llega a Gion", yen:500, k:"entradas"},
+      {h:"18:00", t:"Gion al anochecer", d:"Calle Hanamikoji, cena en la zona", yen:2400, k:"comida"},
+      {h:"Día", t:"Buses de Kioto", d:"", yen:1200, k:"movilidad"}
+    ]},
+    {n:"5", title:"Kioto clásico", base:"Base: Kioto", c:"--kyoto", stamp:"torii", kanji:"伏見稲荷", photos:["fushimi","arashiyama","kinkakuji"], stay:"ky", note:"<b>De mayo a septiembre</b> los restaurantes del río Kamo montan terrazas sobre el agua (kawayuka). Es una cena cara pero única.", noteMonths:["ago","sep"], items:[
+      {h:"06:30", t:"Fushimi Inari", d:"Los miles de torii, antes del calor y la multitud. Entrada libre"},
+      {h:"08:30", t:"Desayuno cerca del santuario", d:"", yen:1500, k:"comida"},
+      {h:"09:15", t:"JR a Saga-Arashiyama", d:"Vía estación de Kioto, ~35 min"},
+      {h:"10:00", t:"Arashiyama: bosque de bambú y Tenryū-ji", d:"", yen:500, k:"entradas"},
+      {h:"12:00", t:"Almuerzo en Arashiyama", d:"Yudofu o soba", yen:1500, k:"comida"},
+      {h:"13:30", t:"Arashiyama → Kinkaku-ji", d:"Bus ~35 min, incluido; en taxi ~20 min", yen:0, taxi:967, k:"transporte", leg:"Arashiyama → Kinkaku-ji"},
+      {h:"14:15", t:"Kinkaku-ji, el Pabellón Dorado", d:"", yen:500, k:"entradas"},
+      {h:"15:30", t:"Descanso en el Airbnb", d:"Las horas de más calor"},
+      {h:"19:00", t:"Cena en Pontocho", d:"Callejón junto al río Kamo", yen:2000, k:"comida"},
+      {h:"19:00", t:"Cambiar por cena en terraza kawayuka", d:"Diferencia sobre la cena en Pontocho (total ~¥7.000)", yen:5000, k:"comida", o:1, months:["ago","sep"]},
+      {h:"Día", t:"Trenes y buses de Kioto", d:"", yen:1500, k:"movilidad"}
+    ]},
+    {n:"6", title:"Nara y llegada a Osaka", base:"Base: Osaka", c:"--nara", stamp:"deer", kanji:"奈良", photos:["naradeer","todaiji","dotonbori"], stay:"os", items:[
+      {h:"08:00", t:"Airbnb → estación de Kioto con valijas", d:"Bus, ~15 min", yen:230, taxi:433, k:"transporte", leg:"Airbnb → estación de Kioto"},
+      {h:"08:30", t:"JR Miyakoji Rapid Kioto → Nara", d:"45 min", yen:720, k:"transporte", v:1},
+      {h:"09:30", t:"Lockers para las maletas", d:"Grandes, en la estación (se llenan rápido)", yen:700, k:"transporte"},
+      {h:"09:45", t:"Parque de Nara y sus ciervos", d:"Galletas shika senbei para darles", yen:200, k:"entradas"},
+      {h:"10:30", t:"Tōdai-ji, el Gran Buda", d:"El salón de madera más grande del mundo", yen:800, k:"entradas"},
+      {h:"13:00", t:"Almuerzo: kakinoha-zushi", d:"Sushi envuelto en hoja de caqui", yen:1500, k:"comida"},
+      {h:"15:00", t:"Kintetsu Nara → Osaka-Namba", d:"~40 min", yen:680, k:"transporte", v:1},
+      {h:"15:45", t:"Namba → Airbnb con valijas", d:"A pie, ~10 min", yen:0, taxi:333, k:"transporte", leg:"Namba → Airbnb"},
+      {h:"19:00", t:"Dotonbori y crucero por el canal", d:"Cartel de Glico, takoyaki y okonomiyaki", yen:1500, k:"entradas"},
+      {h:"20:00", t:"Cena callejera en Dotonbori", d:"", yen:3000, k:"comida"}
+    ]},
+    {n:"7", title:"Universal Studios Japan", base:"Base: Osaka", c:"--osaka", stamp:"coaster", kanji:"大阪", photos:["usj","shinsekai"], stay:"os", note:"<b>Es sábado:</b> el día con más gente. Super Nintendo World puede requerir turno de ingreso; el Express Pass lo garantiza y ahorra horas de fila.", items:[
+      {h:"07:30", t:"JR a Universal City", d:"~20 min, ida y vuelta", yen:600, k:"transporte"},
+      {h:"08:00", t:"Apertura del parque", d:"Ir primero a Super Nintendo World"},
+      {h:"Día", t:"Entrada de 1 día", d:"Precio variable según fecha", yen:10900, k:"entradas", pre:1},
+      {h:"Día", t:"Express Pass", d:"Desde ~¥10.000; sube según el día", yen:10000, k:"entradas", o:1, pre:1},
+      {h:"Día", t:"Comidas dentro del parque", d:"", yen:4000, k:"comida"},
+      {h:"21:00", t:"Kushikatsu en Shinsekai", d:"Brochetas fritas, especialidad de Osaka", yen:2000, k:"comida"}
+    ]},
+    {n:"8", title:"Regreso a Tokio y Harry Potter Studio Tour", base:"Base: Tokio (Shibuya)", c:"--tokyo", stamp:"clapper", kanji:"東京", photos:["studiotour"], stay:"t2", note:"<b>Ojo:</b> Universal Osaka ya tiene la zona de Harry Potter. El Studio Tour es distinto (sets, vestuario y utilería reales). Si al grupo le alcanza con uno, este día puede ser teamLab o compras.", items:[
+      {h:"08:20", t:"Airbnb → Shin-Osaka con valijas", d:"Metro Midosuji, ~15 min", yen:290, taxi:1033, k:"transporte", leg:"Airbnb → Shin-Osaka"},
+      {h:"09:00", t:"Nozomi Shin-Osaka → Tokio", d:"2h30. Tarifa Hayatoku 21 (sin ella: ¥14.720)", yen:12980, k:"transporte", v:1, shk:1},
+      {h:"11:45", t:"Estación de Tokio → Airbnb en Shibuya con valijas", d:"JR + Keio, ~25 min", yen:260, taxi:1767, k:"transporte", leg:"Estación de Tokio → Shibuya"},
+      {h:"12:30", t:"Check-in y almuerzo", d:"", yen:1500, k:"comida"},
+      {h:"14:00", t:"Harry Potter Studio Tour Tokyo", d:"Toshimaen. Recorrido de 3,5–4 h con horario reservado", yen:6500, k:"entradas", pre:1},
+      {h:"19:30", t:"Cena en Omoide Yokocho", d:"Callejón de yakitori junto a la estación de Shinjuku", yen:3500, k:"comida"},
+      {h:"Día", t:"Metro", d:"", yen:1200, k:"movilidad"}
+    ]},
+    {n:"9", title:"Tokio moderno", base:"Base: Tokio (Shibuya)", c:"--tokyo", stamp:"crossing", kanji:"渋谷", photos:["shibuyasky","shibuya","meiji"], stay:"t2", items:[
+      {h:"09:00", t:"Santuario Meiji", d:"Bosque en medio de la ciudad. Entrada libre"},
+      {h:"10:30", t:"Harajuku y Omotesando", d:"Calle Takeshita, crepes y tiendas", yen:1500, k:"comida"},
+      {h:"13:00", t:"Almuerzo", d:"", yen:1500, k:"comida"},
+      {h:"17:30", t:"Shibuya Sky al atardecer y el cruce de Shibuya", d:"Mirador al aire libre sobre el cruce; bajar al cruce de noche", yen:2500, k:"entradas", pre:1},
+      {h:"19:30", t:"Cena de despedida", d:"Izakaya o yakiniku en grupo", yen:2000, k:"comida"},
+      {h:"21:00", t:"Kart por las calles de Tokio", d:"Requiere permiso internacional de conducir (Convención de 1949)", yen:12000, k:"entradas", o:1, pre:1},
+      {h:"Día", t:"Metro", d:"", yen:1200, k:"movilidad"}
+    ]},
+    {n:"10", title:"Último paseo y vuelo de regreso", base:"Salida desde Haneda", c:"--air", stamp:"plane2", kanji:"羽田", photos:["takeshita"], stay:null, items:[
+      {h:"08:30", t:"Desayuno y compras de último momento", d:"Don Quijote de Shibuya para recuerdos y snacks", yen:1500, k:"comida"},
+      {h:"10:30", t:"Check-out", d:"Lockers en la estación hasta la tarde"},
+      {h:"12:00", t:"Almuerzo", d:"", yen:1500, k:"comida"},
+      {h:"15:00", t:"Shibuya → Haneda con valijas", d:"Keikyu, ~45 min. Llegar 3 h antes del vuelo", yen:700, taxi:2933, k:"transporte", leg:"Shibuya → Haneda"},
+      {h:"18:05", t:"Haneda → Toronto", d:"Air Canada directo, llega a Toronto el mismo día a las 17:30", k:"vuelo"},
+      {h:"Noche", t:"Toronto → Bogotá → Quito", d:"Avianca, llegada a Quito al día siguiente", k:"vuelo"}
+    ]}
+  ];
+  var STAYTAX = {t1:0, ky:400, os:200, t2:0};
+  var EXTRAS = [
+    {t:"Seguro de viaje (12 días)", usd:60},
+    {t:"Valija despachada en Avianca, ida y vuelta (si la tarifa no la incluye)", usd:100},
+    {t:"eSIM o pocket wifi", usd:20},
+    {t:"Comisión de tarjeta y cambio (~2,5% del gasto en Japón)", pct:0.025}
+  ];
+  var ROUTES = {
+    ruta:[{d:"Ruta", seq:["haneda","tokio","kioto","nara","osaka","tokio","haneda"]}],
+    tokio:[{d:"1", seq:["haneda","bnb:t1","sensoji"]},{d:"2", seq:["bnb:t1","sensoji","akiba","tsukiji","tower","tsukishima","bnb:t1"]},{d:"3", seq:["bnb:t1","disney"]},{d:"4", seq:["bnb:t1","tokyost"]},{d:"8", seq:["tokyost","bnb:t2","hp","omoide","bnb:t2"]},{d:"9", seq:["bnb:t2","meiji","shibuya","bnb:t2"]},{d:"10", seq:["bnb:t2","haneda"]}],
+    kioto:[{d:"4", seq:["station","bnb:ky","nishiki","kiyomizu","gion","bnb:ky"]},{d:"5", seq:["bnb:ky","fushimi","arashiyama","kinkaku","pontocho","bnb:ky"]},{d:"6", seq:["bnb:ky","station"]}],
+    osaka:[{d:"6", seq:["nara","bnb:os","dotonbori"]},{d:"7", seq:["bnb:os","usj","shinsekai","bnb:os"]},{d:"8", seq:["bnb:os","shinosaka"]}]
+  };
+  var CAT = {vuelo:"Vuelo y visas", transporte:"Trenes y traslados", movilidad:"Movilidad urbana", entradas:"Entradas y actividades", comida:"Comidas", hotel:"Hospedaje e impuesto local", extras:"Seguro, valija, eSIM y comisiones"};
+  var WD = ["dom","lun","mar","mié","jue","vie","sáb"], MO = ["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
+
+  function fmt(n){ return "$" + String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, "."); }
+  function yfmt(n){ return "¥" + String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, "."); }
+  function dt(off){ var s = MONTHS[mon].start; return new Date(Date.UTC(s[0], s[1], s[2] + off)); }
+  function dl(d, wd){ return (wd ? WD[d.getUTCDay()] + " " : "") + d.getUTCDate() + " " + MO[d.getUTCMonth()]; }
+  function iso(d){ return d.toISOString().slice(0,10); }
+  function flightTotal(){ return MONTHS[mon].flight.v + VISAS; }
+  function nightPP(stay){ return DATA.picks[stay].list[lvl].m[mon].pp_night; }
+  function active(it){ return !it.months || it.months.indexOf(mon) > -1; }
+
+  var S = 'fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"';
+  var PLANE = '<path d="M28 62 L92 52 Q99 52 98 57 Q97 61 90 62 L28 66 Z" fill="currentColor"/><path d="M58 58 L46 36 L54 36 L74 56 Z M62 62 L52 82 L60 82 L76 61 Z M32 62 L26 50 L32 50 L40 61 Z" fill="currentColor"/>';
+  var ICONS = {
+    plane: PLANE,
+    plane2:'<g transform="rotate(-18 60 60)">'+PLANE+'</g><path d="M22 86 H98" '+S+'/>',
+    tower:'<path d="M60 22 L76 84 M60 22 L44 84 M49 64 H71 M53 48 H67 M47 72 L73 84 M73 72 L47 84" '+S+'/><rect x="51" y="40" width="18" height="7" fill="currentColor"/>',
+    fireworks:(function(){var s='';for(var i=0;i<12;i++){var a=i*Math.PI/6;s+='<line x1="'+(46+Math.cos(a)*6).toFixed(1)+'" y1="'+(44+Math.sin(a)*6).toFixed(1)+'" x2="'+(46+Math.cos(a)*20).toFixed(1)+'" y2="'+(44+Math.sin(a)*20).toFixed(1)+'" '+S+'/>';}for(var j=0;j<8;j++){var b=j*Math.PI/4;s+='<line x1="'+(80+Math.cos(b)*4).toFixed(1)+'" y1="'+(64+Math.sin(b)*4).toFixed(1)+'" x2="'+(80+Math.cos(b)*14).toFixed(1)+'" y2="'+(64+Math.sin(b)*14).toFixed(1)+'" '+S+'/>';}return s+'<path d="M30 86 H90" '+S+'/>';})(),
+    shinkansen:'<path d="M60 26 L92 68 H28 Z" '+S+'/><path d="M60 26 L68 37 L63 35 L60 39 L56 35 L52 37 Z" fill="currentColor"/><path d="M18 86 H82 Q100 86 102 79 L84 74 H18 Z" fill="currentColor"/>',
+    torii:'<path d="M26 34 Q60 26 94 34" '+S+' stroke-width="5"/><path d="M32 46 H88 M40 34 V86 M80 34 V86" '+S+' stroke-width="5"/><path d="M60 34 V46" '+S+'/>',
+    deer:'<ellipse cx="60" cy="64" rx="12" ry="17" '+S+'/><path d="M47 52 L36 46 M73 52 L84 46 M54 48 L48 30 M51 39 L41 34 M66 48 L72 30 M69 39 L79 34" '+S+'/><circle cx="55" cy="62" r="2" fill="currentColor"/><circle cx="65" cy="62" r="2" fill="currentColor"/>',
+    coaster:'<circle cx="60" cy="50" r="18" '+S+'/><path d="M18 82 Q42 82 50 64 M70 64 Q78 82 102 82 M40 82 V70 M80 82 V70 M60 68 V82" '+S+'/>',
+    clapper:'<rect x="32" y="50" width="56" height="34" rx="3" '+S+'/><path d="M32 50 L36 36 L88 30 L88 44 Z" '+S+'/><path d="M46 34 L42 48 M60 33 L56 48 M74 31 L70 48" '+S+'/>',
+    crossing:'<path d="M30 30 V60 M44 22 V60 M58 34 V60 M72 26 V60 M86 38 V60" '+S+'/><path d="M24 70 H44 M50 70 H70 M76 70 H96 M24 80 H44 M50 80 H70 M76 80 H96" '+S+' stroke-width="5"/>'
+  };
+  function stamp(d){
+    var fs = d.kanji.length > 2 ? 13 : 16;
+    return '<svg class="stamp" viewBox="0 0 120 120" role="img" aria-label="Sello del día '+d.n+'"><rect x="4" y="4" width="112" height="112" rx="16" fill="none" stroke="currentColor" stroke-width="3"/><rect x="10" y="10" width="100" height="100" rx="11" fill="none" stroke="currentColor" stroke-width="1.2"/><g transform="translate(0,-6)">'+ICONS[d.stamp]+'</g><text x="60" y="'+(fs===13?101:103)+'" text-anchor="middle" font-family="Dela Gothic One, sans-serif" font-size="'+fs+'" fill="currentColor">'+d.kanji+'</text></svg>';
+  }
+  function gallery(keys){
+    if (!keys.length) return "";
+    var cls = keys.length === 1 ? "gallery one" : keys.length === 2 ? "gallery two" : "gallery";
+    return '<div class="'+cls+'">' + keys.map(function(k,i){
+      return '<figure class="'+(i===0?'big':'small')+'"><img src="img/'+k+'.jpg" alt="'+PHOTOS[k]+'" loading="'+(i===0?'eager':'lazy')+'"><figcaption>'+PHOTOS[k]+'</figcaption></figure>';
+    }).join("") + '</div>';
+  }
+  function chip(it){
+    if (it.o) return '<span class="chip o">opcional</span>';
+    if (it.flight) return MONTHS[mon].flight.src === "v" ? '<span class="chip v">validado</span>' : '<span class="chip e">proyección</span>';
+    if (!it.yen) return '';
+    return it.v ? '<span class="chip v">validado</span>' : '<span class="chip e">estimado</span>';
+  }
+
+  var mon = "ago", lvl = 1, withOpt = false, mode = "tren", saved = 0, mapDay = {};
+  try { var st = JSON.parse(localStorage.getItem("jp27c") || "null"); if (st) { mon = st.mon || mon; lvl = st.lvl; withOpt = st.opt; mode = st.mode || mode; } } catch(e){}
+  document.getElementById("mode-" + mode).checked = true;
+  document.getElementById("mon-"+mon).checked = true;
+  document.getElementById("lvl-"+lvl).checked = true;
+  document.getElementById("opt").checked = withOpt;
+
+  function amountOf(it){ if (it.flight) return flightTotal(); if (mode === "taxi" && it.taxi != null) return it.taxi / RATE; return (it.yen || 0) / RATE; }
+  function nightCost(stay){ return nightPP(stay) + STAYTAX[stay] / RATE; }
+  function costs(m){
+    var save = mon; mon = m;
+    var cats = {vuelo:flightTotal(),transporte:0,movilidad:0,entradas:0,comida:0,hotel:0,extras:0}, opt = 0, pre = 0, shk = 0;
+    DAYS.forEach(function(d){
+      d.items.forEach(function(it){
+        if (it.flight || !active(it)) return;
+        var a = amountOf(it);
+        if (!a) return;
+        if (it.o) { opt += a; if (!withOpt) return; }
+        cats[it.k] += a;
+        if (it.pre) pre += a;
+        if (it.shk) shk += a;
+      });
+      if (d.stay) cats.hotel += nightCost(d.stay);
+    });
+    var japanBase = cats.transporte + cats.movilidad + cats.entradas + cats.comida + cats.hotel;
+    var fixedExtras = 0, pctExtra = 0;
+    EXTRAS.forEach(function(e){ if (e.usd) fixedExtras += e.usd; else pctExtra += e.pct * (japanBase - cats.hotel); });
+    cats.extras = fixedExtras + pctExtra;
+    mon = save;
+    var japan = japanBase;
+    var total = japan + cats.vuelo + cats.extras;
+    return {cats:cats, opt:opt, japan:japan, total:total, pre:pre, shk:shk, pctExtra:pctExtra,
+      cash: japanBase - cats.hotel - pre - shk};
+  }
+
+  function renderMaps(){
+    var M = DATA.maps, html = "";
+    var defs = [
+      {key:"ruta", title:"La ruta completa", wide:true, col:"--air"},
+      {key:"tokio", title:"Tokio", col:"--tokyo", stays:["t1","t2"]},
+      {key:"kioto", title:"Kioto", col:"--kyoto", stays:["ky"]},
+      {key:"osaka", title:"Nara y Osaka", col:"--osaka", stays:["os"]}
+    ];
+    defs.forEach(function(df){
+      var m = M[df.key], pins = "", leg = "", n = 0, bnbLeg = "";
+      var byId = {};
+      m.pts.forEach(function(p){ if (p.id === "bnb") byId["bnb:" + p.k.slice(2) + ":" + p.k.charAt(1)] = p; else byId[p.id] = p; });
+      function pt(id){ return id.indexOf("bnb:") === 0 ? byId[id + ":" + lvl] : byId[id]; }
+      var routes = ROUTES[df.key], sel = mapDay[df.key] || "all";
+      var shown = routes.filter(function(r){ return sel === "all" || r.d === sel; });
+      var onRoute = {};
+      shown.forEach(function(r){ r.seq.forEach(function(id){ var p = pt(id); if (p) onRoute[p.label] = 1; }); });
+      var dashes = ["", "8 5", "2 5", "12 4 2 4", "6 3", "1 4", "10 6"];
+      var lines = shown.map(function(r, i){
+        var ptsStr = r.seq.map(function(id){ var p = pt(id); return p ? (p.x / 100 * m.w).toFixed(1) + "," + (p.y / 100 * m.h).toFixed(1) : ""; }).filter(Boolean).join(" ");
+        var dash = sel === "all" && df.key !== "ruta" ? dashes[i % dashes.length] : "";
+        return '<polyline points="' + ptsStr + '" fill="none" style="stroke:var(' + df.col + ')" stroke-width="' + (sel === "all" ? 3 : 5) + '" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="' + dash + '" opacity="' + (sel === "all" ? 0.75 : 0.95) + '" marker-mid="url(#ar-' + df.key + ')" marker-end="url(#ar-' + df.key + ')"/>';
+      }).join("");
+      var svg = '<svg class="route" viewBox="0 0 ' + m.w + ' ' + m.h + '" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="ar-' + df.key + '" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto"><path d="M1 1 L9 5 L1 9 Z" style="fill:var(' + df.col + ')"/></marker></defs>' + lines + '</svg>';
+      m.pts.forEach(function(p){
+        var pos = 'left:' + p.x + '%;top:' + p.y + '%';
+        var dim = sel !== "all" && !onRoute[p.label] ? " dim" : "";
+        if (df.key === "ruta") {
+          var col = {air:"--air",tokyo:"--tokyo",kyoto:"--kyoto",nara:"--nara",osaka:"--osaka"}[p.k];
+          pins += '<span class="pin city" style="' + pos + ';--c:var(' + col + ')" aria-hidden="true"></span><span class="citylabel" style="' + pos + '">' + p.label + '</span>';
+        } else if (p.id === "bnb") {
+          var l = +p.k.charAt(1), stay = p.k.slice(2), tag = LVK[l] + (df.stays.length > 1 ? (stay === "t1" ? "1" : "2") : "");
+          if (l !== lvl) dim = " dim";
+          pins += '<button type="button" class="pin bnb' + dim + '" style="' + pos + '" data-label="' + p.label + '" aria-label="' + p.label + '">' + tag + '</button>';
+          if (l === lvl) bnbLeg += '<li><span class="k bnb">' + tag + '</span><span>' + DATA.picks[stay].list[l].title + ' · ' + STAYKEYS[stay] + '</span></li>';
+        } else {
+          n++;
+          pins += '<button type="button" class="pin' + dim + '" style="' + pos + ';--c:var(' + df.col + ')" data-label="' + p.label + '" aria-label="' + p.label + '">' + n + '</button>';
+          leg += '<li style="--c:var(' + df.col + ')"><span class="k">' + n + '</span><span>' + p.label + '</span></li>';
+        }
+      });
+      var chips = "";
+      if (df.key !== "ruta") {
+        chips = '<div class="daychips" role="group" aria-label="Elegir día en el mapa de ' + df.title + '">' +
+          '<button type="button" data-map="' + df.key + '" data-day="all" aria-pressed="' + (sel === "all") + '">Todos</button>' +
+          routes.map(function(r){ return '<button type="button" data-map="' + df.key + '" data-day="' + r.d + '" aria-pressed="' + (sel === r.d) + '">Día ' + r.d + '</button>'; }).join("") + '</div>';
+        if (sel !== "all") {
+          var r = routes.filter(function(x){ return x.d === sel; })[0];
+          chips += '<p class="routetxt">' + r.seq.map(function(id){ var p = pt(id); return p ? (p.id === "bnb" ? "Airbnb" : p.label) : ""; }).join(" → ") + '</p>';
+        }
+      }
+      html += '<figure class="map' + (df.wide ? ' wide' : '') + '"><div class="map-frame"><img src="img/maps/' + df.key + '.jpg" width="' + m.w + '" height="' + m.h + '" alt="Mapa de ' + df.title + '">' + svg + pins + '</div>'
+        + (df.wide ? '' : '<div class="map-legend"><h3>' + df.title + '</h3>' + chips + '<ol>' + leg + '<li class="sub">Airbnb nivel ' + LV[lvl].toLowerCase() + '</li>' + bnbLeg + '</ol></div>')
+        + '<figcaption class="attrib">© colaboradores de OpenStreetMap</figcaption></figure>';
+    });
+    document.getElementById("maps").innerHTML = html;
+  }
+
+  function renderStays(){
+    var html = "";
+    ["t1","ky","os","t2"].forEach(function(k){
+      var P = DATA.picks[k], a = STAYNIGHTS[k], ci = dt(a[0]+1), co = dt(a[1]+1);
+      var stt = DATA.stats[mon][k];
+      html += '<div class="stay-block" style="--c:var('+STAYCOL[k]+')"><div class="stay-head"><h3><span>'+(k==="ky"?"京都":k==="os"?"大阪":"東京")+'</span>'+STAYKEYS[k]+' · '+P.area+'</h3>'
+        + '<span class="mkt">'+P.nights+' noches, '+dl(ci,true)+' al '+dl(co,true)+' · en la zona: desde '+fmt(stt.min)+', mediana '+fmt(stt.med)+' ('+stt.n+' opciones)</span></div><div class="bnbs">';
+      P.list.forEach(function(b, i){
+        var mm = b.m[mon], url = "https://www.airbnb.com/rooms/"+b.id+"?adults=6&check_in="+iso(ci)+"&check_out="+iso(co);
+        html += '<article class="bnb-card'+(i===lvl?' sel':'')+'"><img src="'+b.img+'" alt="'+b.title+'" loading="lazy"><span class="bnb-lvl">'+LV[i]+'</span><div class="bnb-body">'
+          + '<div class="bnb-title">'+b.title+'</div><div class="bnb-sub">'+b.sub+'</div>'
+          + '<div class="bnb-meta"><span>'+b.beds+'</span><span>★ '+b.rating+'</span></div>'
+          + '<div class="bnb-price"><b>'+fmt(mm.total)+'</b><small>total '+P.nights+' noches · '+fmt(mm.pp_night)+' por persona y noche</small>'+(mm.src==="real"?'<span class="chip v">validado</span>':'<span class="chip e">proyección</span>')+'</div>'
+          + '<a class="bnb-link" href="'+url+'" target="_blank" rel="noopener">Ver anuncio en Airbnb ↗</a></div></article>';
+      });
+      html += '</div></div>';
+    });
+    document.getElementById("stays").innerHTML = html;
+  }
+
+  function renderDays(){
+    var html = "";
+    DAYS.forEach(function(d, idx){
+      var total = 0, rows = "";
+      d.items.forEach(function(it){
+        if (!active(it)) return;
+        var amount = amountOf(it), cell = "";
+        if (it.flight) { cell = fmt(amount); total += amount; }
+        else if (it.taxi != null) {
+          var other = mode === "taxi" ? (it.yen ? fmt(it.yen / RATE) : "incluido") : fmt(it.taxi / RATE);
+          cell = (amount ? fmt(amount) : "incluido") + '<span class="y">' + (mode === "taxi" ? "en tren: " : "taxi/Uber: ") + other + '</span>';
+          total += amount;
+        }
+        else if (it.yen) {
+          cell = fmt(amount) + '<span class="y">' + yfmt(it.yen) + '</span>';
+          if (!it.o || withOpt) total += amount;
+        }
+        var modeTag = it.taxi != null ? ' <span class="chip ' + (mode === "taxi" ? 'e">taxi o Uber' : 'v">tren') + '</span>' : '';
+        rows += '<tr class="' + (it.o ? 'opt' + (withOpt ? ' on' : '') : '') + '"><td class="h">' + it.h + '</td><td class="what"><b>' + it.t + '</b> ' + chip(it) + modeTag + (it.d ? '<small>' + it.d + '</small>' : '') + '</td><td class="cost">' + cell + '</td></tr>';
+      });
+      var stayHtml = '<span class="stay">Sin hospedaje esta noche</span>';
+      if (d.stay) {
+        var b = DATA.picks[d.stay].list[lvl], night = nightCost(d.stay);
+        total += night;
+        stayHtml = '<span class="stay">Noche: <b>' + b.title + '</b> · ' + fmt(night) + ' por persona' + (STAYTAX[d.stay] ? ' (incluye impuesto local ' + yfmt(STAYTAX[d.stay]) + ')' : '') + ' ' + (b.m[mon].src === "real" ? '<span class="chip v">validado</span>' : '<span class="chip e">proyección</span>') + '</span>';
+      }
+      var date = idx === 0 ? dl(dt(0), true) + " – " + dl(dt(2), true) : dl(dt(idx + 1), true);
+      var note = d.note && (!d.noteMonths || d.noteMonths.indexOf(mon) > -1) ? '<div class="note">' + d.note + '</div>' : '';
+      html += '<article class="day" style="--c:var(' + d.c + ')" id="dia-' + d.n + '">'
+        + '<div class="day-side">' + stamp(d) + '<div><div class="day-num">Día ' + d.n + '</div><div class="day-date">' + date + '</div></div></div>'
+        + '<div class="day-main">' + gallery(d.photos) + '<div class="day-head"><h3>' + d.title + '</h3><span class="base">' + d.base + '</span></div>'
+        + note + '<div class="tt-wrap"><table class="tt"><tbody>' + rows + '</tbody></table></div>'
+        + '<div class="day-foot">' + stayHtml + '<span class="day-total">' + fmt(total) + '<small>' + (idx === 0 ? 'vuelo y visas' : 'por persona este día') + '</small></span></div>'
+        + '</div></article>';
+    });
+    document.getElementById("days").innerHTML = html;
+  }
+
+  function renderMoves(){
+    var rows = "", tr = 0, tx = 0;
+    DAYS.forEach(function(d){ d.items.forEach(function(it){
+      if (it.taxi == null) return;
+      var a = (it.yen || 0) / RATE, b = it.taxi / RATE; tr += a; tx += b;
+      rows += '<tr><td>Día ' + d.n + '</td><td>' + it.leg + '</td><td class="' + (mode === "tren" ? 'cur' : '') + '">' + (a ? fmt(a) : 'incluido') + '</td><td class="' + (mode === "taxi" ? 'cur' : '') + '">' + fmt(b) + '</td></tr>';
+    }); });
+    rows += '<tr class="tot"><td></td><td>Total por persona</td><td class="' + (mode === "tren" ? 'cur' : '') + '">' + fmt(tr) + '</td><td class="' + (mode === "taxi" ? 'cur' : '') + '">' + fmt(tx) + '</td></tr>';
+    document.getElementById("moves").innerHTML = '<thead><tr><th>Día</th><th>Tramo con valijas</th><th class="' + (mode === "tren" ? 'cur' : '') + '">Tren o metro</th><th class="' + (mode === "taxi" ? 'cur' : '') + '">Taxi o Uber (2 autos)</th></tr></thead><tbody>' + rows + '</tbody>';
+    document.getElementById("moves-diff").textContent = fmt(tx - tr) + " por persona (" + fmt((tx - tr) * 6) + " el grupo)";
+  }
+
+  var MON_ES = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+  function plan(m){
+    var c = costs(m), base = c.total, imprev = base * 0.10, grand = base + imprev;
+    var tIdx = {ago:7, sep:8, oct:9}[m];
+    var n = (2027 - 2026) * 12 + tIdx - 10;
+    var saveSt = mon; mon = m; var flight = MONTHS[m].flight.v; mon = saveSt;
+    var vis = EXTRAS[1].usd;
+    var ms = [
+      {i:0, t:"Visa canadiense", a:135},
+      {i:3, t:"Vuelos (Avianca + Air Canada) y valija", a:flight + vis},
+      {i:4, t:"Visa japonesa", a:20},
+      {i:n-2, t:"Entradas con fecha (parques, Studio Tour, clase de sushi, Shibuya Sky)", a:c.pre},
+      {i:n-1, t:"Airbnb, Shinkansen, seguro y eSIM", a:c.cats.hotel + c.shk + EXTRAS[0].usd + EXTRAS[2].usd},
+      {i:n-1, t:"Efectivo para Japón, comisiones e imprevistos (10%)", a:c.cash + c.pctExtra + imprev}
+    ];
+    var p1 = 135 + flight + vis;
+    var need1 = Math.max(0, p1 - saved);
+    var ph1 = need1 / 4;
+    var remaining = Math.max(0, grand - saved - need1);
+    var ph2 = remaining / (n - 4);
+    return {c:c, grand:grand, n:n, tIdx:tIdx, ms:ms, ph1:ph1, ph2:ph2, flat:Math.max(0, grand - saved) / n};
+  }
+  function mlabel(i){ var mm = 10 + i, y = 2026 + Math.floor(mm / 12); return MON_ES[mm % 12] + " " + y; }
+  function renderSavings(){
+    var P = plan(mon), html = "";
+    var endLabel = mlabel(P.n - 1);
+    html += '<div class="tiles">'
+      + '<div class="tile"><span class="eyebrow">Noviembre 2026 a febrero 2027</span><b>' + fmt(P.ph1) + '</b><small>por persona al mes · grupo ' + fmt(P.ph1 * 6) + '</small><small>Alcanza para visas y vuelos en febrero</small></div>'
+      + '<div class="tile"><span class="eyebrow">Marzo 2027 a ' + endLabel + '</span><b>' + fmt(P.ph2) + '</b><small>por persona al mes · grupo ' + fmt(P.ph2 * 6) + '</small><small>' + (P.n - 4) + ' meses para el resto</small></div>'
+      + '<div class="tile"><span class="eyebrow">Total a juntar</span><b>' + fmt(P.grand) + '</b><small>por persona, con 10% de imprevistos · grupo ' + fmt(P.grand * 6) + '</small><small>Parejo en ' + P.n + ' meses: ' + fmt(P.flat) + ' al mes</small></div>'
+      + '</div>';
+    var acc = 0, rows = "";
+    P.ms.forEach(function(x){ acc += x.a; rows += '<tr><td>' + mlabel(x.i) + '</td><td>' + x.t + '</td><td>' + fmt(x.a) + '</td><td>' + fmt(acc) + '</td></tr>'; });
+    html += '<div class="box"><table class="sum compact"><thead><tr><th>Mes</th><th>Qué se paga</th><th>Por persona</th><th>Acumulado</th></tr></thead><tbody>' + rows + '</tbody></table></div>';
+    var cmp = ["ago","sep","oct"].map(function(m){ var q = plan(m); return '<td class="' + (m === mon ? 'cur' : '') + '">' + fmt(q.ph1) + ' → ' + fmt(q.ph2) + '<small>' + q.n + ' meses · total ' + fmt(q.grand) + '</small></td>'; }).join("");
+    html += '<div class="box"><table class="sum"><thead><tr><th>Si viajan en</th><th class="' + (mon === "ago" ? 'cur' : '') + '">Agosto</th><th class="' + (mon === "sep" ? 'cur' : '') + '">Septiembre</th><th class="' + (mon === "oct" ? 'cur' : '') + '">Octubre</th></tr></thead><tbody><tr><td>Ahorro mensual por persona (hasta febrero → después)</td>' + cmp + '</tr></tbody></table></div>';
+    document.getElementById("savings").innerHTML = html;
+  }
+
+  function renderTotals(){
+    var c = costs(mon), M = MONTHS[mon];
+    document.getElementById("t-pp").textContent = fmt(c.total);
+    document.getElementById("t-grp").textContent = "Grupo de 6: " + fmt(c.total * 6);
+    document.getElementById("t-split").textContent = "Vuelo y visas " + fmt(c.cats.vuelo) + " · en Japón " + fmt(c.japan) + " · extras " + fmt(c.cats.extras);
+    document.getElementById("m-dep").textContent = dl(dt(0), true) + " " + M.start[0];
+    document.getElementById("m-jp").textContent = dl(dt(2), false) + " al " + dl(dt(11), false);
+    document.getElementById("m-ret").textContent = dl(dt(12), true);
+    document.getElementById("month-note").innerHTML = M.note;
+    var ln = [[2,5,"3 noches"],[5,7,"2 noches"],[7,7,"de paso"],[7,9,"2 noches"],[9,11,"2 noches"]];
+    ln.forEach(function(x, i){ document.getElementById("ln-" + i).textContent = x[2] + " · " + (x[0] === x[1] ? dl(dt(x[0]), false) : dt(x[0]).getUTCDate() + "–" + dl(dt(x[1]), false)); });
+
+    var sum = '<thead><tr><th>Rubro</th><th>Por persona</th><th>Grupo de 6</th><th>% del total</th></tr></thead><tbody>';
+    ["vuelo","hotel","entradas","comida","transporte","movilidad","extras"].forEach(function(k){
+      sum += '<tr><td>' + CAT[k] + '</td><td>' + fmt(c.cats[k]) + '</td><td>' + fmt(c.cats[k] * 6) + '</td><td>' + Math.round(c.cats[k] / c.total * 100) + '%</td></tr>';
+    });
+    sum += '<tr class="tot"><td>Total</td><td>' + fmt(c.total) + '</td><td>' + fmt(c.total * 6) + '</td><td>100%</td></tr>';
+    sum += '<tr><td>Opcionales ' + (withOpt ? '(incluidos)' : '(no incluidos)') + '</td><td>' + fmt(c.opt) + '</td><td>' + fmt(c.opt * 6) + '</td><td></td></tr>';
+    sum += '<tr><td>Fondo sugerido para imprevistos (10%)</td><td>' + fmt(c.total * 0.1) + '</td><td>' + fmt(c.total * 0.6) + '</td><td></td></tr></tbody>';
+    document.getElementById("sum").innerHTML = sum;
+    document.getElementById("sum-sub").textContent = M.name + " · hospedaje " + LV[lvl].toLowerCase() + " · traslados con valijas en " + (mode === "taxi" ? "taxi o Uber" : "tren") + " · " + (withOpt ? "con" : "sin") + " opcionales.";
+
+    var ms = ["ago","sep","oct"], cs = ms.map(costs);
+    function td(m, inner){ return '<td class="' + (m === mon ? 'cur' : '') + '">' + inner + '</td>'; }
+    var t = '<thead><tr><th>Por persona</th>' + ms.map(function(m){ return '<th class="' + (m === mon ? 'cur' : '') + '">' + MONTHS[m].name + '</th>'; }).join("") + '</tr></thead><tbody>';
+    t += '<tr><td>Vuelo ida y vuelta</td>' + ms.map(function(m){ var f = MONTHS[m].flight; return td(m, fmt(f.v) + '<small>' + (f.src === "v" ? 'validado' : 'proyección ' + fmt(f.lo) + '–' + fmt(f.hi)) + '</small>'); }).join("") + '</tr>';
+    t += '<tr><td>Visas (Canadá y Japón)</td>' + ms.map(function(m){ return td(m, fmt(VISAS)); }).join("") + '</tr>';
+    t += '<tr><td>Hospedaje ' + LV[lvl].toLowerCase() + ', 9 noches</td>' + cs.map(function(c, i){ return td(ms[i], fmt(c.cats.hotel) + '<small>Airbnb consultado</small>'); }).join("") + '</tr>';
+    t += '<tr><td>Trenes, entradas, comida y movilidad</td>' + cs.map(function(c, i){ return td(ms[i], fmt(c.japan - c.cats.hotel)); }).join("") + '</tr>';
+    t += '<tr><td>Extras (seguro, valija, eSIM, comisiones)</td>' + cs.map(function(c, i){ return td(ms[i], fmt(c.cats.extras)); }).join("") + '</tr>';
+    t += '<tr class="tot"><td>Total por persona</td>' + cs.map(function(c, i){ return td(ms[i], fmt(c.total)); }).join("") + '</tr>';
+    t += '<tr><td>Grupo de 6</td>' + cs.map(function(c, i){ return td(ms[i], fmt(c.total * 6)); }).join("") + '</tr>';
+    t += '<tr class="txt"><td>Clima esperado</td>' + td("ago", "~35 °C, tifones") + td("sep", "~30 °C, pico de tifones") + td("oct", "~22 °C, el más estable") + '</tr></tbody>';
+    document.getElementById("months").innerHTML = t;
+  }
+
+  function renderCredits(){
+    var html = "";
+    [DATA.credits, DATA.foodCredits].forEach(function(C, j){
+      Object.keys(C).forEach(function(k){
+        var c = C[k];
+        html += '<li>' + ((j === 0 ? PHOTOS[k] : FOODNAMES[k]) || k) + ': <a href="' + c.page + '" target="_blank" rel="noopener">' + (c.artist || "autor en Commons") + '</a>, ' + c.lic + '</li>';
+      });
+    });
+    document.getElementById("credits").innerHTML = html;
+  }
+  var FOODNAMES = {sushi:"Sushi", ramen:"Ramen", yakitori:"Omoide Yokocho", monja:"Monjayaki", onigiri:"Onigiri", nishiki:"Mercado Nishiki", yudofu:"Yudofu", matcha:"Matcha y wagashi", soba:"Soba", takoyaki:"Takoyaki", okonomiyaki:"Okonomiyaki", kushikatsu:"Kushikatsu", kakinoha:"Kakinoha-zushi"};
+
+  var voteDb = null, voteUser = null, voteUid = null, votes = {}, voteCanWrite = true;
+  function choiceText(){
+    var c = costs(mon), P = plan(mon), nm = (document.getElementById("vote-name").value || "").trim();
+    return "Japón 2027" + (nm ? " · " + nm : "") + ": viajo en " + MONTHS[mon].name.toLowerCase() + ", hospedaje " + LV[lvl].toLowerCase() + ", traslados con valijas en " + (mode === "taxi" ? "taxi o Uber" : "tren") + ", " + (withOpt ? "con" : "sin") + " opcionales. Total estimado " + fmt(c.total) + " por persona; ahorro " + fmt(P.ph1) + " al mes hasta febrero y " + fmt(P.ph2) + " después.";
+  }
+  function renderVoteMine(){
+    var mine = document.getElementById("vote-mine");
+    mine.textContent = "";
+    [["Mes", MONTHS[mon].name], ["Hospedaje", LV[lvl]], ["Traslados", mode === "taxi" ? "Taxi o Uber" : "Tren"], ["Opcionales", withOpt ? "Sí" : "No"], ["Total por persona", fmt(costs(mon).total)]].forEach(function(r){
+      var d = document.createElement("div"); var a = document.createElement("span"); a.textContent = r[0]; var b = document.createElement("b"); b.textContent = r[1]; d.appendChild(a); d.appendChild(b); mine.appendChild(d);
+    });
+    var t = choiceText();
+    document.getElementById("vote-text").value = t;
+    document.getElementById("vote-wa").href = "https://wa.me/?text=" + encodeURIComponent(t);
+  }
+  function renderVotes(){
+    var ids = Object.keys(votes), tally = document.getElementById("vote-tally"), list = document.getElementById("vote-list");
+    if (!ids.length) { tally.innerHTML = '<p class="vote-status">Todavía nadie guardó su voto en la página.</p>'; list.textContent = ""; return; }
+    var dims = [["mon","Mes",{ago:"Agosto",sep:"Septiembre",oct:"Octubre"}],["lvl","Hospedaje",{0:"Económico",1:"Medio",2:"Alto"}],["mode","Traslados",{tren:"Tren",taxi:"Taxi o Uber"}]];
+    var html = "";
+    dims.forEach(function(dm){
+      var counts = {}; Object.keys(dm[2]).forEach(function(k){ counts[k] = 0; });
+      ids.forEach(function(id){ var v = votes[id][dm[0]]; if (v != null && counts[String(v)] != null) counts[String(v)]++; });
+      html += '<div class="tally"><span class="eyebrow">' + dm[1] + '</span>' + Object.keys(dm[2]).map(function(k){
+        var pct = Math.round(counts[k] / ids.length * 100);
+        return '<div class="bar"><span>' + dm[2][k] + '</span><i style="--w:' + pct + '%"></i><b>' + counts[k] + '</b></div>';
+      }).join("") + '</div>';
+    });
+    tally.innerHTML = html + '<p class="vote-status">' + ids.length + ' de 6 votaron.</p>';
+    var draw = function(ps){
+      list.textContent = "";
+      ids.forEach(function(id){
+        var v = votes[id], li = document.createElement("li");
+        var nm = document.createElement("b"); nm.textContent = (ps && ps[id] && ps[id].name) || (id === voteUid ? "Vos" : "Alguien del grupo");
+        var tx = document.createElement("span"); tx.textContent = " " + (MONTHS[v.mon] ? MONTHS[v.mon].name : "") + " · " + (LV[v.lvl] || "") + " · " + (v.mode === "taxi" ? "taxi o Uber" : "tren") + " · " + (v.opt ? "con" : "sin") + " opcionales";
+        li.appendChild(nm); li.appendChild(tx); list.appendChild(li);
+      });
+    };
+    draw(null);
+    if (voteUser) voteUser.profiles(ids).then(draw);
+  }
+  (async function initVotes(){
+    if (!window.claude || typeof window.claude.use !== "function") return;
+    try {
+      voteDb = await window.claude.use("db");
+      voteUser = await window.claude.use("user");
+      voteUid = voteUser ? await voteUser.id() : null;
+    } catch(e) { return; }
+    if (!voteDb) return;
+    voteDb.collection("votes").onSnapshot(function(snap){
+      votes = {}; snap.docs.forEach(function(d){ if (d.exists) votes[d.id] = d.data(); }); renderVotes();
+    }, function(){});
+    var st = document.getElementById("vote-status"), btn = document.getElementById("vote-save");
+    if (!voteUid) { st.textContent = "Iniciá sesión en claude.ai para guardar tu voto, o mandalo por WhatsApp."; return; }
+    var cw = voteUser ? await voteUser.can("data.write") : null;
+    btn.hidden = false;
+    st.textContent = "Tu voto usa lo que elegiste arriba. Podés cambiarlo cuando quieras.";
+    btn.addEventListener("click", async function(){
+      if (!voteCanWrite) return;
+      btn.disabled = true; st.textContent = "Guardando…";
+      try {
+        await voteDb.collection("votes").doc(voteUid).set({mon:mon, lvl:lvl, mode:mode, opt:withOpt, at:Date.now()});
+        st.textContent = "Listo, tu voto quedó guardado.";
+      } catch(e) {
+        if (e && e.code === "invalid_argument") { voteCanWrite = false; btn.hidden = true; st.textContent = "Tu acceso a esta página es de solo lectura, así que no podés guardar acá. Mandá tu elección por WhatsApp."; }
+        else st.textContent = "No se pudo guardar. Probá de nuevo en un momento.";
+      }
+      btn.disabled = false;
+    });
+    if (cw === false) { voteCanWrite = false; btn.hidden = true; st.textContent = "Tu acceso a esta página es de solo lectura, así que no podés guardar acá. Mandá tu elección por WhatsApp."; }
+  })();
+  document.getElementById("vote-name").addEventListener("input", renderVoteMine);
+  document.getElementById("vote-copy").addEventListener("click", function(){
+    var ta = document.getElementById("vote-text"), b = this;
+    var done = function(){ b.textContent = "Copiado"; setTimeout(function(){ b.textContent = "Copiar texto"; }, 1500); };
+    try { navigator.clipboard.writeText(ta.value).then(done, function(){ ta.focus(); ta.select(); }); } catch(e) { ta.focus(); ta.select(); }
+  });
+
+  function render(){ renderTotals(); renderSavings(); renderMaps(); renderStays(); renderMoves(); renderDays(); renderVoteMine(); }
+  function save(){ try { localStorage.setItem("jp27c", JSON.stringify({mon:mon, lvl:lvl, opt:withOpt, mode:mode})); } catch(e){} }
+  Array.prototype.forEach.call(document.querySelectorAll('input[name="lvl"]'), function(r){ r.addEventListener("change", function(){ lvl = +r.value; save(); render(); }); });
+  Array.prototype.forEach.call(document.querySelectorAll('input[name="mon"]'), function(r){ r.addEventListener("change", function(){ mon = r.value; save(); render(); }); });
+  Array.prototype.forEach.call(document.querySelectorAll('input[name="mode"]'), function(r){ r.addEventListener("change", function(){ mode = r.value; save(); render(); }); });
+  document.getElementById("opt").addEventListener("change", function(e){ withOpt = e.target.checked; save(); render(); });
+  document.getElementById("maps").addEventListener("click", function(e){
+    var b = e.target.closest("button[data-map]"); if (!b) return;
+    mapDay[b.getAttribute("data-map")] = b.getAttribute("data-day"); renderMaps();
+  });
+  var savedIn = document.getElementById("saved"), savedErr = document.getElementById("saved-err");
+  savedIn.addEventListener("input", function(){
+    var v = savedIn.value.trim() === "" ? 0 : Number(savedIn.value);
+    if (!isFinite(v) || v < 0) { savedErr.textContent = "Ingresá un monto en dólares mayor o igual a 0"; return; }
+    savedErr.textContent = ""; saved = v; renderSavings();
+  });
+  renderCredits();
+  render();
+})();
+</script>
+
+
+
+
+</body></html>
